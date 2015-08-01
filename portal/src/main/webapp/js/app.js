@@ -1,5 +1,4 @@
 define(['angular',
-        'angularResource',
         'controllers/controllers',
         'services/services',
         'directives/directives',

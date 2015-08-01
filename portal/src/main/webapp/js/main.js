@@ -3,8 +3,7 @@ require.config({
         angular : 'bower_components/angular/angular.min',
         jquery : 'bower_components/jquery/dist/jquery.min',
         twitter: 'bower_components/bootstrap/dist/js/bootstrap.min',
-        domReady : 'bower_components/requirejs-domready/domReady',
-        angularResource: 'bower_components/angular-resource/angular-resource.min'
+        domReady : 'bower_components/requirejs-domready/domReady'
     },
     shim : {
         twitter : {
@@ -13,9 +12,6 @@ require.config({
         angular : {
             deps : ['jquery','twitter'],
             exports : 'angular'
-        },
-        angularResource: {
-            deps: ['angular']
         }
     }
 });
