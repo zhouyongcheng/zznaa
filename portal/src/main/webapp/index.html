@@ -1,14 +1,16 @@
 <!doctype html>
-<html lang="en" ng-app="">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Portal</title>
-    <link href="js/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-    <link href="js/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="js/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="js/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 </head>
-<body>
-    <input  type="text" class="form-control" ng-model="username" />
-    {{username}}
+<body class="container" ng-controller="LoginController">
+<form name="loginForm">
+    <input type="text" class="form-control" ng-model="user.username"/>
+    <input type="text" class="form-control" ng-model="user.password"/>
+</form>
+<script data-main="js/main" src="js/bower_components/requirejs/require.js"></script>
 </body>
-    <script data-main="js/main" src="js/bower_components/requirejs/require.js"></script>
 </html>
