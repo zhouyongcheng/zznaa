@@ -4,7 +4,7 @@ define(['controllers/controllers'], function(controllers) {
             username : 'zhouyc',
             password : '123456',
             validate : function() {
-                $http.get('http://localhost:8080/api/account/validate')
+                $http.get('http://192.168.0.103:8080/api/account/validate')
                     .success(function(data) {
                         console.log("success = " + data);
                     }).error(function(e) {
