@@ -6,6 +6,11 @@
 
     <typeAliases>
         <typeAlias alias="SysUsers" type="cn.com.fero.p2p.model.SysUsers"/>
+        <typeAlias alias="SysRoles" type="cn.com.fero.p2p.model.SysRoles" />
+        <typeAlias alias="SysPermissions" type="cn.com.fero.p2p.model.SysPermissions" />
+        <typeAlias alias="SysUsersRolesKey" type="cn.com.fero.p2p.model.SysUsersRolesKey" />
+        <typeAlias alias="SysRolesPermissionsKey" type="cn.com.fero.p2p.model.SysRolesPermissionsKey" />
+        <typeAlias alias="SysUsersPermissionsKey" type="cn.com.fero.p2p.model.SysUsersPermissionsKey" />
     </typeAliases>
 
     <environments default="development">
