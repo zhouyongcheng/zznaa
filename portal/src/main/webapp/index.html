@@ -1,21 +1,13 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Portal</title>
-    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-</head>
-<body class="container" ng-controller="LoginController">
-<h1>you are welcom...</h1>
-<form name="loginForm">
-
-    <input type="text" class="form-control" ng-model="user.username"/>
-    <input type="text" class="form-control" ng-model="user.password"/>
-    <button ng-click="user.validate()">TestRest</button>
-
-    
-</form>
-<script data-main="js/main" src="bower_components/requirejs/require.js"></script>
+<meta charset="UTF-8"/>
+<title>Portal</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<body class="container">
+<div class="container" ng-cloak>
+    <div ui-view class="main-content">Loading...</div>
+</div>
+<script data-main="main" src="bower_components/requirejs/require.js"></script>
 </body>
 </html>
