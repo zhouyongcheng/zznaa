@@ -1,26 +1,35 @@
 require.config({
 
     paths : {
-        jquery : 'bower_components/jquery/dist/jquery.min',
-        twitter : 'bower_components/bootstrap/dist/js/bootstrap.min',
         angular : 'bower_components/angular/angular.min',
-        ngResource : 'bower_components/angular-resource/angular-resource.min',
+        angularResource:'bower_components/angular-resource/angular-resource.min',
         uiRouter : 'bower_components/angular-ui-router/release/angular-ui-router.min',
-        domReady : 'bower_components/domReady/domReady'
+        jquery : 'bower_components/jquery/dist/jquery.min',
+        twitter: 'bower_components/bootstrap/dist/js/bootstrap.min',
+        domReady : 'bower_components/requirejs-domready/domReady',
+        loginModule : 'modules/login/loginModule',
+        brokerModule : 'modules/broker/brokerModule',
+        AdminLTE : 'js/app.min',
+        Chart : 'bower_components/Chart.js/Chart.min'
     },
     shim : {
-        'twitter' : {
-            deps : ['jquery']
+        twitter : {
+            deps: ['jquery']
         },
-        'angular' : {
+        angular : {
             deps : ['twitter'],
             exports : 'angular'
         },
-        'ngResource' : {
+        uiRouter : {
+            deps : ['angular'],
+            exports : 'uiRouter'
+        },
+        angularResource : {
             deps : ['angular']
         },
-        'uiRouter' : {
-            deps : ['angular']
+        AdminLTE : {
+            deps : ['jquery', 'twitter'],
+            exports : '$.AdminLTE'
         }
     }
 });
