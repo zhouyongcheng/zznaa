@@ -1,24 +1,35 @@
-define(['angular',
+define([
+    'angular',
     'uiRouter',
     'loginModule',
-    'brokerModule'
+    'brokerModule',
+    'buyingModule',
+    'sellingModule',
+    'repositoryModule',
+    'allianceModule'
 ], function(angular) {
-    angular.module('bkoffice', ['ui.router', 'loginModule', 'brokerModule'])
+    return angular.module('portal', ['ui.router', 'loginModule', 'brokerModule', 'buyingModule', 'sellingModule', 'repositoryModule', 'allianceModule'])
         .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
             $stateProvider
                 .state('login', {
                     url: '/login',
-                    templateUrl: 'modules/login/login.html',
-                    controller: 'LoginController'
+                    templateUrl: 'modules/login/login.html'
                 }).state('broker', {
                     url: '/broker',
-                    templateUrl: 'modules/broker/broker.html',
-                    controller: "BrokerController"
+                    templateUrl: 'modules/broker/broker.html'
+                }).state('buying', {
+                    url: '/buying',
+                    templateUrl: 'modules/buying/buying.html',
+                    controller: 'BuyingController'
+                }).state('selling', {
+                    url: '/selling',
+                    templateUrl: 'modules/selling/selling.html'
+                }).state('repository', {
+                    url: '/repository',
+                    templateUrl: 'modules/repository/repository.html'
+                }).state('alliance', {
+                    url: '/alliance',
+                    templateUrl: 'modules/alliance/alliance.html'
                 });
-            $urlRouterProvider.otherwise('/index');
-        }]).controller('IndexController', function($scope) {
-            $scope.message = "hello world";
-        }).controller("SecondController",function ($scope) {
-            $scope.message = "i like this game, but why?";
-        });
+        }]);
 });
