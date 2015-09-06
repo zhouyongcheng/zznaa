@@ -20,15 +20,13 @@
                         userId="${jdbc.username}"
                         password="${jdbc.password}" />
 
-        <javaModelGenerator targetPackage="cn.com.zzn.persist.model" targetProject="/home/zhouyc/idea_workspace/atm/model">
+        <javaModelGenerator targetPackage="cn.com.zzn.model.persist" targetProject="/home/cmwin/IdeaProjects/zznaa/model/src/main/java">
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
-        <sqlMapGenerator targetPackage="cn.com.zzn.persist.mapper" targetProject="/home/zhouyc/idea_workspace/atm/coredao" />
-        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.com.zzn.persist.client" targetProject="/home/zhouyc/idea_workspace/zzn/coredao" />
-        <!--<table schema="bobohouse" tableName="atm_external_user" />-->
-        <!--<table schema="bobohouse" tableName="atm_pending_mngasn" />-->
-        <table schema="bobohouse" tableName="atm_project_info" />
-        <!--<table schema="bobohouse" tableName="atm_sign_in" />-->
-        <!--<table schema="bobohouse" tableName="atm_external_user" />-->
+        <sqlMapGenerator targetPackage="cn.com.zzn.persist.mapper" targetProject="/home/cmwin/IdeaProjects/zznaa/persist/src/main/resources" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.com.zzn.persist.client" targetProject="/home/cmwin/IdeaProjects/zznaa/persist/src/main/java" />
+
+        <table schema="atm" tableName="codetable" />
+
     </context>
 </generatorConfiguration>

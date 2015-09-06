@@ -1,6 +1,6 @@
 package cn.com.zzn.persist.service.impl;
 
-import cn.com.zzn.persist.mapper.AAthMapper;
+import cn.com.zzn.persist.client.AAthMapper;
 import cn.com.zzn.persist.service.AAthDao;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

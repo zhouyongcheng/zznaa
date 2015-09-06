@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.zzn.persist.client.CodetableMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.zzn.model.persist.Codetable" >
+    <id column="category_" property="category" jdbcType="VARCHAR" />
+    <id column="code_" property="code" jdbcType="INTEGER" />
+    <result column="label_" property="label" jdbcType="VARCHAR" />
+    <result column="desc_" property="desc" jdbcType="VARCHAR" />
+    <result column="order_" property="order" jdbcType="INTEGER" />
+  </resultMap>
+
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from codetable
+    where category_ = #{category,jdbcType=VARCHAR}
+      and code_ = #{code,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="cn.com.zzn.model.persist.Codetable" >
+    insert into codetable (category_, code_, label_,
+      desc_, order_)
+    values (#{category,jdbcType=VARCHAR}, #{code,jdbcType=INTEGER}, #{label,jdbcType=VARCHAR}, 
+      #{desc,jdbcType=VARCHAR}, #{order,jdbcType=INTEGER})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="cn.com.zzn.model.persist.Codetable" >
+    update codetable
+    set label_ = #{label,jdbcType=VARCHAR},
+      desc_ = #{desc,jdbcType=VARCHAR},
+      order_ = #{order,jdbcType=INTEGER}
+    where category_ = #{category,jdbcType=VARCHAR}
+      and code_ = #{code,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select category_, code_, label_, desc_, order_
+    from codetable
+    where category_ = #{category,jdbcType=VARCHAR}
+      and code_ = #{code,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select category_, code_, label_, desc_
+    from codetable
+    order by category_, order_
+  </select>
+
+  <select id="selectByCategory" resultType="cn.com.zzn.model.view.Option" parameterType="java.lang.String" >
+    select
+     code_ as code,
+     label_ as label
+    from codetable
+    where category_ = #{category,jdbcType=VARCHAR}
+    order by order_
+  </select>
+
+</mapper>
