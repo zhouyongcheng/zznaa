@@ -6,9 +6,10 @@ define([
     'buyingModule',
     'sellingModule',
     'repositoryModule',
-    'allianceModule'
+    'allianceModule',
+    'masterModule'
 ], function(angular) {
-    return angular.module('portal', ['ui.router', 'loginModule', 'brokerModule', 'buyingModule', 'sellingModule', 'repositoryModule', 'allianceModule'])
+    return angular.module('portal', ['ui.router', 'loginModule', 'brokerModule', 'buyingModule', 'sellingModule', 'repositoryModule', 'allianceModule','masterModule'])
         .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
             $stateProvider
                 .state('login', {
@@ -30,6 +31,10 @@ define([
                 }).state('alliance', {
                     url: '/alliance',
                     templateUrl: 'modules/alliance/alliance.html'
+                }).state('master', {
+                    url: '/master',
+                    templateUrl: 'modules/master/master.html',
+                    controller: 'MasterController'
                 });
         }]);
 });
