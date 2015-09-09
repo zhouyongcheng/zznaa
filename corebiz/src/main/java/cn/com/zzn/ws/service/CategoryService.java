@@ -5,10 +5,7 @@ import cn.com.zzn.model.view.Option;
 import cn.com.zzn.persist.service.CodeTableService;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
@@ -33,4 +30,10 @@ public class CategoryService {
         return codeTableService.getAllCategories();
     }
 
+    @GET
+    @Path("{category}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Option> getCategoriesByType(@PathParam("category") String category) {
+        return codeTableService.getCodeValues(category);
+    }
 }
