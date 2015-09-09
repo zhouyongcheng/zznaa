@@ -1,6 +1,8 @@
 define([
     'angular',
     'uiRouter',
+    'restangular',
+    'masterModule',
     'loginModule',
     'brokerModule',
     'buyingModule',
@@ -8,10 +10,14 @@ define([
     'repositoryModule',
     'allianceModule'
 ], function(angular) {
-    return angular.module('portal', ['ui.router', 'loginModule', 'brokerModule', 'buyingModule', 'sellingModule', 'repositoryModule', 'allianceModule'])
+    return angular.module('portal', ['ui.router', 'masterModule', 'loginModule', 'brokerModule', 'buyingModule', 'sellingModule', 'repositoryModule', 'allianceModule'])
         .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
             $stateProvider
-                .state('login', {
+                .state('master', {
+                    url: '/master',
+                    templateUrl: 'modules/master/master.html',
+                    controller: 'MasterController'
+                }).state('login', {
                     url: '/login',
                     templateUrl: 'modules/login/login.html'
                 }).state('broker', {
@@ -31,5 +37,5 @@ define([
                     url: '/alliance',
                     templateUrl: 'modules/alliance/alliance.html'
                 });
-        }]);
+            }]);
 });

@@ -7,6 +7,9 @@ require.config({
         jquery : 'bower_components/jquery/dist/jquery.min',
         twitter: 'bower_components/bootstrap/dist/js/bootstrap.min',
         domReady : 'bower_components/requirejs-domready/domReady',
+        lodash : 'bower_components/lodash/lodash.min',
+        restangular : 'bower_components/restangular/dist/restangular.min',
+        masterModule: 'modules/master/masterModule',
         loginModule : 'modules/login/loginModule',
         brokerModule : 'modules/broker/brokerModule',
         buyingModule : 'modules/buying/buyingModule',
@@ -29,6 +32,9 @@ require.config({
         },
         ngResource : {
             deps : ['angular']
+        },
+        restangular : {
+            deps : ['angular','lodash']
         },
         AdminLTE : {
             deps : ['jquery', 'twitter'],

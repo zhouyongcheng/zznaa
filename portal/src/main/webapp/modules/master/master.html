@@ -1,0 +1,18 @@
+<div>
+    <h1>{{message}}</h1>
+    <table class="table">
+        <tr ng-repeat="category in categories">
+            <td>{{category.category}}</td>
+            <td>{{category.code}}</td>
+            <td>{{category.label}}</td>
+            <td>{{category.desc}}</td>
+            <td>{{category.order}}</td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr ng-repeat="gender in genders">
+            <td>{{gender.code}}</td>
+            <td>{{gender.label}}</td>
+        </tr>
+    </table>
+</div>
