@@ -1,5 +1,4 @@
 require.config({
-
     paths : {
         angular : 'bower_components/angular/angular.min',
         ngResource:'bower_components/angular-resource/angular-resource.min',
@@ -50,9 +49,6 @@ require([
     'domReady'
 ], function(angular,  app, domReady) {
     'use strict';
-
-    app.value("API_POINT", 'http://192.168.0.103:8080/api');
-
     domReady(function() {
         angular.bootstrap(document, ['portal']);
     });

@@ -37,10 +37,6 @@ define([
                 }).state('alliance', {
                     url: '/alliance',
                     templateUrl: 'modules/alliance/alliance.html'
-                }).state('master', {
-                    url: '/master',
-                    templateUrl: 'modules/master/master.html',
-                    controller: 'MasterController'
                 });
             }]);
 });
