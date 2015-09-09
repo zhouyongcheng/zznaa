@@ -15,7 +15,8 @@ require.config({
         buyingModule : 'modules/buying/buyingModule',
         sellingModule : 'modules/selling/sellingModule',
         repositoryModule : 'modules/repository/repositoryModule',
-        allianceModule : 'modules/alliance/allianceModule'
+        allianceModule : 'modules/alliance/allianceModule',
+        masterModule : 'modules/master/masterModule'
         //AdminLTE : 'js/app.min',
         //Chart : 'bower_components/Chart.js/Chart.min'
     },
@@ -50,7 +51,7 @@ require([
 ], function(angular,  app, domReady) {
     'use strict';
 
-    app.value("API_POINT", 'http://localhost:8080/portal/api');
+    app.value("API_POINT", 'http://192.168.0.103:8080/api');
 
     domReady(function() {
         angular.bootstrap(document, ['portal']);

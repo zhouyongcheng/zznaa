@@ -8,7 +8,8 @@ define([
     'buyingModule',
     'sellingModule',
     'repositoryModule',
-    'allianceModule'
+    'allianceModule',
+    'masterModule'
 ], function(angular) {
     return angular.module('portal', ['ui.router', 'masterModule', 'loginModule', 'brokerModule', 'buyingModule', 'sellingModule', 'repositoryModule', 'allianceModule'])
         .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
@@ -36,6 +37,10 @@ define([
                 }).state('alliance', {
                     url: '/alliance',
                     templateUrl: 'modules/alliance/alliance.html'
+                }).state('master', {
+                    url: '/master',
+                    templateUrl: 'modules/master/master.html',
+                    controller: 'MasterController'
                 });
             }]);
 });
