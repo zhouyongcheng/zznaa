@@ -18,11 +18,11 @@ public class CategoryService {
     @Inject
     private CodeTableService codeTableService;
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Option> getCategoryOptions(@QueryParam("type") String category) {
-        return codeTableService.getCodeValues(category);
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public List<Option> getCategoryOptions(@QueryParam("type") String category) {
+//        return codeTableService.getCodeValues(category);
+//    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -33,7 +33,21 @@ public class CategoryService {
     @GET
     @Path("{category}")
     @Produces(MediaType.APPLICATION_JSON)
+    public List<Codetable> getCategories(@PathParam("category") String category) {
+        return codeTableService.getCategories(category);
+    }
+
+    @GET
+    @Path("option/{category}")
+    @Produces(MediaType.APPLICATION_JSON)
     public List<Option> getCategoriesByType(@PathParam("category") String category) {
-        return codeTableService.getCodeValues(category);
+        return codeTableService.getOptions(category);
+    }
+
+    @GET
+    @Path("{category}/code/{code}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Codetable getCategoryItem(@PathParam("category") String category, @PathParam("code") Integer code) {
+        return codeTableService.getCategoryItem(category,code);
     }
 }

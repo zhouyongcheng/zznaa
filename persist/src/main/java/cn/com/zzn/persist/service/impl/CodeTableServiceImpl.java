@@ -23,6 +23,10 @@ public class CodeTableServiceImpl implements CodeTableService {
         this.sqlSessionFactory = sqlSessionFactory;
     }
 
+    /**
+     * get all categories
+     * @return
+     */
     public List<Codetable> getAllCategories() {
         SqlSession session = null;
         try {
@@ -43,16 +47,59 @@ public class CodeTableServiceImpl implements CodeTableService {
     }
 
     /**
+     * get all categories for specified category type
+     * @param category
+     * @return
+     */
+    public List<Codetable> getCategories(String category) {
+        SqlSession session = null;
+        try {
+            session = sqlSessionFactory.openSession();
+            CodetableMapper mapper = session.getMapper(CodetableMapper.class);
+            return mapper.selectCategories(category);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            if (session != null) {
+                session.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return null;
+    }
+
+    /**
      * get code value pairs for specified category
      * @param category
      * @return code value pairs list
      */
-    public List<Option> getCodeValues(String category) {
+    public List<Option> getOptions(String category) {
         SqlSession session = null;
         try {
             session = sqlSessionFactory.openSession();
             CodetableMapper mapper = session.getMapper(CodetableMapper.class);
             return mapper.selectByCategory(category);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            if (session != null) {
+                session.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return null;
+    }
+
+    public Codetable getCategoryItem(String category, Integer code) {
+        SqlSession session = null;
+        try {
+            session = sqlSessionFactory.openSession();
+            CodetableMapper mapper = session.getMapper(CodetableMapper.class);
+            return mapper.selectByPrimaryKey(category, code);
         } catch (Exception e) {
             log.error(e.getMessage());
             if (session != null) {

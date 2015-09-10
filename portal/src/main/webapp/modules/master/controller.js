@@ -1,15 +1,8 @@
 define(['angular', 'modules/master/service'], function(angular) {
-    angular.module('masterControllers', ['masterServices']).controller('MasterController', function($scope, masterService) {
-        console.log("--------------------");
-        console.log(window.location.href);
-        console.log("--------------------");
+    angular.module('masterControllers', ['masterServices','restangular']).controller('MasterController', function($scope, Restangular, masterService) {
 
-        masterService.getList().then(function (data) {
+        masterService.getAllCategories().getList().then(function (data) {
            $scope.categories = data;
         });
-
-        masterService.one('sys_gender').get().then(function(data) {
-            $scope.genders = data;
-        })
     });
 });

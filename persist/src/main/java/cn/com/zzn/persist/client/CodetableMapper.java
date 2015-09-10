@@ -39,6 +39,9 @@ public interface CodetableMapper {
      */
     List<Codetable> selectAll();
 
+
+    List<Codetable> selectCategories(String category);
+
     /**
      * get all code value pairs for specified category
      * @param category

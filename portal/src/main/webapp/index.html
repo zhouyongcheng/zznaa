@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh_CN">
 <meta charset="UTF-8"/>
 <title>Portal</title>
 <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
 <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <body class="container">
-<h1>game start ......</h1>
-<div class="container" ng-cloak>
+<div ng-cloak>
+    <div class="row">
     <ul class="nav navbar-nav">
         <li><a ui-sref="buying">着急买</a></li>
         <li><a ui-sref="selling">着急卖</a></li>
@@ -14,7 +14,10 @@
         <li><a ui-sref="alliance">联盟楼盘</a></li>
         <li><a ui-sref="master">基础数据</a></li>
     </ul>
-    <div ui-view class="main-content">Loading...</div>
+    </div>
+    <div class="row">
+        <div ui-view>Loading...</div>
+    </div>
 </div>
 <script data-main="main" src="bower_components/requirejs/require.js"></script>
 </body>

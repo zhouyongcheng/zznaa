@@ -53,4 +53,11 @@
     order by order_
   </select>
 
+  <select id="selectCategories" resultType="cn.com.zzn.model.persist.Codetable" parameterType="java.lang.String">
+    select category_, code_, label_, desc_
+    from codetable
+    where category_ = #{category,jdbcType=VARCHAR}
+    order by order_
+  </select>
+
 </mapper>

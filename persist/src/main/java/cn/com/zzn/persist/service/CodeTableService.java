@@ -12,7 +12,11 @@ public interface CodeTableService {
 
     List<Codetable> getAllCategories();
 
-    List<Option> getCodeValues(String category);
+    List<Codetable> getCategories(String category);
+
+    List<Option> getOptions(String category);
+
+    Codetable getCategoryItem(String category, Integer code);
 
     int addCodetableRecord(Codetable record);
 
