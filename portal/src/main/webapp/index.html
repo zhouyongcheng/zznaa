@@ -4,6 +4,11 @@
 <title>Portal</title>
 <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
 <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<style>
+    body {
+        font-family:"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu
+    }
+</style>
 <body class="container">
 <div ng-cloak>
     <div class="row">
@@ -13,10 +18,11 @@
         <li><a ui-sref="repository">我的仓库</a></li>
         <li><a ui-sref="alliance">联盟楼盘</a></li>
         <li><a ui-sref="master">基础数据</a></li>
+        <li><a ui-sref="projects">项目情报</a></li>
     </ul>
     </div>
-    <div class="row">
-        <div ui-view>Loading...</div>
+    <div class="row well">
+        <section ui-view>Loading...</section>
     </div>
 </div>
 <script data-main="main" src="bower_components/requirejs/require.js"></script>

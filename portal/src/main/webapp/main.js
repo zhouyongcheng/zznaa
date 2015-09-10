@@ -15,7 +15,8 @@ require.config({
         sellingModule : 'modules/selling/sellingModule',
         repositoryModule : 'modules/repository/repositoryModule',
         allianceModule : 'modules/alliance/allianceModule',
-        masterModule : 'modules/master/masterModule'
+        masterModule : 'modules/master/masterModule',
+        projectModule : 'modules/project/projectModule'
         //AdminLTE : 'js/app.min',
         //Chart : 'bower_components/Chart.js/Chart.min'
     },
