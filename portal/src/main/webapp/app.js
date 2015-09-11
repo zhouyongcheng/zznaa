@@ -10,7 +10,10 @@ define([
     'repositoryModule',
     'allianceModule',
     'masterModule',
-    'projectModule'
+    'projectModule',
+    'uploadModule',
+    'uploadcare',
+    'ngUploadcare'
 ], function(angular) {
     return angular.module('portal',
         ['ui.router',
@@ -21,10 +24,15 @@ define([
          'buyingModule',
          'sellingModule',
          'repositoryModule',
-         'allianceModule'])
+         'allianceModule',
+         'uploadModule'
+        ])
         .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
             $stateProvider
-                .state('master', {
+                .state('upload', {
+                    url: '/upload',
+                    templateUrl: 'modules/upload/upload.html'
+                }).state('master', {
                     url: '/master',
                     templateUrl: 'modules/master/master.html',
                     controller: 'MasterController'
@@ -48,14 +56,48 @@ define([
                     url: '/alliance',
                     templateUrl: 'modules/alliance/alliance.html'
                 }).state('projects', {
-                    url:'/projects',
-                    templateUrl:'modules/project/projects.html'
+                    url: '/projects',
+                    templateUrl : 'modules/project/projects.html'
+                }).state('projects.detail', {
+                    views : {
+                        'filters' : {
+                            templateUrl : 'modules/project/filters.html'
+                        },
+                        'menu' : {
+                            templateUrl : 'modules/project/menu.html'
+                        },
+                        'content' : {
+                            templateUrl:'modules/project/content.html'
+                        }
+                    }
                 }).state('projects.list', {
                     url:'/list',
-                    templateUrl:'modules/project/projects.list.html'
+                    //templateUrl:'modules/project/projects.list.html',
+                    views : {
+                        'filters' : {
+                            templateUrl : 'modules/project/filters.html'
+                        },
+                        'menu' : {
+                            templateUrl : 'modules/project/menu.html'
+                        },
+                        'content' : {
+                            templateUrl:'modules/project/content.html'
+                        }
+                    }
                 }).state('projects.add', {
                     url:'/add',
-                    templateUrl:'modules/project/projects.add.html'
+                    //templateUrl:'modules/project/projects.add.html',
+                    views : {
+                        'filters' : {
+                            templateUrl : 'modules/project/filters.html'
+                        },
+                        'menu' : {
+                            templateUrl : 'modules/project/menu.html'
+                        },
+                        'content' : {
+                            templateUrl:'modules/project/content.html'
+                        }
+                    }
                 });
             }]);
 });

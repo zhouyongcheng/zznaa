@@ -1,0 +1,19 @@
+<div class="row">
+    <hr />
+    <input uploadcare-widget
+        data-public-key="your_public_key"
+        data-tabs="file url"
+        data-images-only="true"
+        data-preview-step="true"
+        data-clearable="true"
+        data-multiple="false"
+        data-crop="400:200"
+        on-upload-complete="onUCUploadComplete(info)"
+        on-widget-ready="onUCWidgetReady(widget)"
+        ng-model="object.image.info.uuid"
+        value="{{object.image.info.cdnUrl}}"
+        />
+
+    <!--<input type="hidden" role="uploadcare-uploader"-->
+           <!--data-multiple="" data-image-shrink="640x480">-->
+</div>

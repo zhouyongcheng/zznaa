@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang="zh_CN">
-<meta charset="UTF-8"/>
-<title>Portal</title>
-<link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<style>
-    body {
-        font-family:"Microsoft YaHei",微软雅黑,"Microsoft JhengHei",华文细黑,STHeiti,MingLiu
-    }
-</style>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Portal</title>
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script>
+        UPLOADCARE_PUBLIC_KEY = 'your_public_key';
+    </script>
+</head>
 <body class="container">
 <div ng-cloak>
     <div class="row">
@@ -19,6 +19,7 @@
         <li><a ui-sref="alliance">联盟楼盘</a></li>
         <li><a ui-sref="master">基础数据</a></li>
         <li><a ui-sref="projects">项目情报</a></li>
+        <li><a ui-sref="upload">文件上传</a></li>
     </ul>
     </div>
     <div class="row well">

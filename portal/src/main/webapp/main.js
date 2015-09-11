@@ -16,9 +16,10 @@ require.config({
         repositoryModule : 'modules/repository/repositoryModule',
         allianceModule : 'modules/alliance/allianceModule',
         masterModule : 'modules/master/masterModule',
-        projectModule : 'modules/project/projectModule'
-        //AdminLTE : 'js/app.min',
-        //Chart : 'bower_components/Chart.js/Chart.min'
+        uploadModule : 'modules/upload/uploadModule',
+        projectModule : 'modules/project/projectModule',
+        uploadcare : 'bower_components/Uploadcare/uploadcare.full.min',
+        ngUploadcare : 'bower_components/angular-uploadcare/angular-uploadcare'
     },
     shim : {
         twitter : {
@@ -37,9 +38,11 @@ require.config({
         restangular : {
             deps : ['angular','lodash']
         },
-        AdminLTE : {
-            deps : ['jquery', 'twitter'],
-            exports : '$.AdminLTE'
+        uploadcare : {
+            deps : ['jquery']
+        },
+        ngUploadcare : {
+            deps : ['jquery', 'angular','uploadcare']
         }
     }
 });
