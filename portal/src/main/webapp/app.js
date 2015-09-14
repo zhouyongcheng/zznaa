@@ -1,7 +1,10 @@
 define([
     'angular',
     'uiRouter',
+    'fileUploadShim',
+    'fileUpload',
     'restangular',
+    'ngFileUpload',
     'masterModule',
     'loginModule',
     'brokerModule',
@@ -11,12 +14,11 @@ define([
     'allianceModule',
     'masterModule',
     'projectModule',
-    'uploadModule',
-    'uploadcare',
-    'ngUploadcare'
+    'uploadModule'
 ], function(angular) {
     return angular.module('portal',
         ['ui.router',
+         'ngFileUpload',
          'masterModule',
          'projectModule',
          'loginModule',
@@ -31,7 +33,8 @@ define([
             $stateProvider
                 .state('upload', {
                     url: '/upload',
-                    templateUrl: 'modules/upload/upload.html'
+                    templateUrl: 'modules/upload/upload.html',
+                    controller: 'UploadController'
                 }).state('master', {
                     url: '/master',
                     templateUrl: 'modules/master/master.html',

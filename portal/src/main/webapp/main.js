@@ -18,8 +18,9 @@ require.config({
         masterModule : 'modules/master/masterModule',
         uploadModule : 'modules/upload/uploadModule',
         projectModule : 'modules/project/projectModule',
-        uploadcare : 'bower_components/Uploadcare/uploadcare.full.min',
-        ngUploadcare : 'bower_components/angular-uploadcare/angular-uploadcare'
+        ngFileUpload : 'bower_components/angular-file-upload/dist/angular-file-upload.min',
+        fileUploadShim : 'bower_components/ng-file-upload/ng-file-upload-shim.min',
+        fileUpload : 'bower_components/ng-file-upload/ng-file-upload.min'
     },
     shim : {
         twitter : {
@@ -38,11 +39,11 @@ require.config({
         restangular : {
             deps : ['angular','lodash']
         },
-        uploadcare : {
-            deps : ['jquery']
+        fileUpload : {
+            deps : ['angular']
         },
-        ngUploadcare : {
-            deps : ['jquery', 'angular','uploadcare']
+        ngFileUpload : {
+            deps : ['angular']
         }
     }
 });
@@ -50,7 +51,8 @@ require.config({
 require([
     'angular',
     'app',
-    'domReady'
+    'domReady',
+    'js/directive'
 ], function(angular,  app, domReady) {
     'use strict';
     domReady(function() {

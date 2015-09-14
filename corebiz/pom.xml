@@ -12,17 +12,20 @@
     <url>http://maven.apache.org</url>
 
     <dependencies>
-
         <dependency>
             <groupId>cn.com.zzn</groupId>
             <artifactId>persist</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.tapestry</groupId>
             <artifactId>tapestry-core</artifactId>
             <version>${tapestry-release-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io-version}</version>
         </dependency>
         <dependency>
             <groupId>org.tynamo</groupId>
@@ -32,25 +35,45 @@
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jackson-provider</artifactId>
-            <version>3.0.7.Final</version>
+            <version>${resteasy-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-multipart-provider</artifactId>
+            <version>${resteasy-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>mail</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
-        <!-- Include the Log4j implementation for the SLF4J logging framework -->
-        <!--<dependency>-->
-            <!--<groupId>org.slf4j</groupId>-->
-            <!--<artifactId>slf4j-log4j12</artifactId>-->
-            <!--<version>${slf4j-release-version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>${mail-version}</version>
+        </dependency>
 
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>1.1.2</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>0.4.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.4-SNAPSHOT</version>
         </dependency>
 
         <dependency>
@@ -59,8 +82,6 @@
             <version>${servlet-api-release-version}</version>
             <scope>provided</scope>
         </dependency>
-
-
     </dependencies>
     <build>
         <finalName>corebiz</finalName>
@@ -128,6 +149,8 @@
         <servlet-api-release-version>2.5</servlet-api-release-version>
         <slf4j-release-version>1.7.7</slf4j-release-version>
         <tapestry-resteasy-version>0.4.0</tapestry-resteasy-version>
-        <resteasy-jackson-provider-version>3.0.7.Final</resteasy-jackson-provider-version>
+        <resteasy-version>3.0.7.Final</resteasy-version>
+        <commons-io-version>2.2</commons-io-version>
+        <mail-version>1.4.4</mail-version>
     </properties>
 </project>
