@@ -1,22 +1,7 @@
-<div>
-    <table class="table">
-        <tr>
-              <th>类别</th>
-              <th>编码</th>
-              <th>标签</th>
-              <th>描述</th>
-              <th>顺序</th>
-              <th>操作</th>
-              <th>操作</th>
-          </tr>
-        <tr ng-repeat="category in categories">
-            <td>{{category.category}}</td>
-            <td>{{category.code}}</td>
-            <td>{{category.label}}</td>
-            <td>{{category.desc}}</td>
-            <td>{{category.order}}</td>
-            <td><a href="#">更新</a></td>
-            <td><a href="#">删除</a></td>
-        </tr>
-    </table>
+
+<ul class="nav navbar-nav">
+    <li><a ui-sref="master.list">数据列表</a></li><br />
+    <li><a ui-sref="master.create">新规</a></li>
+</ul>
+<div ui-view>
 </div>

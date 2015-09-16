@@ -38,7 +38,19 @@ define([
                 }).state('master', {
                     url: '/master',
                     templateUrl: 'modules/master/master.html',
-                    controller: 'MasterController'
+                    controller: 'MasterListController'
+                }).state('master.list', {
+                    url: '/list',
+                    templateUrl: 'modules/master/list.html',
+                    controller: 'MasterListController'
+                }).state('master.create', {
+                    url: '/create',
+                    templateUrl: 'modules/master/create.html',
+                    controller: 'MasterCreateController'
+                }).state('master.update', {
+                    url: '/update',
+                    templateUrl: 'modules/master/update.html',
+                    controller: 'MasterUpdateController'
                 }).state('login', {
                     url: '/login',
                     templateUrl: 'modules/login/login.html'
