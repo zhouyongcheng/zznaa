@@ -15,8 +15,13 @@ define(['angular', 'modules/master/service'], function(angular) {angular.module(
             $state.go("master.update");
         };
 
-        $scope.delete = function() {
-            $state.go("master.list");
+        $scope.delete = function(ctype, ccode) {
+            masterService.delCategory(ctype, ccode).remove().then(function(data){
+                $state.transitionTo('master.list');
+                console.log("success while delete category" + data);
+            }, function(data) {
+                console.log("error while delete category" + data);
+            });
         };
     }).controller('MasterCreateController', function($scope,$state,masterService) {
         $scope.addCategory = function() {

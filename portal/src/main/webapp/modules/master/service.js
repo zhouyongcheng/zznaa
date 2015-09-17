@@ -14,6 +14,9 @@ define(['angular','restangular'], function(angular) {
             },
             addCategory : function(category) {
                 return categories.post(category);
+            },
+            delCategory : function(ctype, ccode) {
+                return categories.one(ctype, ccode);
             }
         };
     });

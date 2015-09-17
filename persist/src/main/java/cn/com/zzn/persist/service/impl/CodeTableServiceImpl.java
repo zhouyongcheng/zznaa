@@ -159,4 +159,25 @@ public class CodeTableServiceImpl implements CodeTableService {
         }
         return count;
     }
+
+    public int delCategory(String category, Integer code) {
+        int count = -1;
+        SqlSession session = null;
+        try {
+            session = sqlSessionFactory.openSession();
+            CodetableMapper mapper = session.getMapper(CodetableMapper.class);
+            count = mapper.deleteByPrimaryKey(category,code);
+            session.commit();
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            if (session != null) {
+                session.rollback();
+            }
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return count;
+    }
 }

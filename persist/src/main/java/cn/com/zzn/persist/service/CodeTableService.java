@@ -21,4 +21,6 @@ public interface CodeTableService {
     int addCodetableRecord(Codetable record);
 
     int updCodetableRecord(Codetable record);
+
+    int delCategory(String category, Integer code);
 }
