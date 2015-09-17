@@ -7,6 +7,7 @@ import org.apache.tapestry5.ioc.annotations.Inject;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
@@ -55,5 +56,20 @@ public class CategoryService {
     @Consumes(MediaType.APPLICATION_JSON)
     public void addCategory(Codetable category) {
        codeTableService.addCodetableRecord(category);
+    }
+
+    @DELETE
+    @Path("/{category}/{code}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response delCategory(@PathParam("category") String category, @PathParam("code") Integer code) {
+        Response r = null;
+        try {
+            System.out.println("step into delCategory java method");
+            codeTableService.delCategory(category, code);
+            r = Response.ok("OK").build();
+        } catch (Exception e) {
+            r = Response.ok("ERROR").build();
+        }
+        return r;
     }
 }
