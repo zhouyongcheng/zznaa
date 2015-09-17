@@ -11,6 +11,9 @@ define(['angular','restangular'], function(angular) {
             },
             getOptions : function(category) {
                 return categories.one('option', category);
+            },
+            addCategory : function(category) {
+                return categories.post(category);
             }
         };
     });

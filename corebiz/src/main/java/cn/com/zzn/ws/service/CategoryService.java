@@ -48,6 +48,12 @@ public class CategoryService {
     @Path("{category}/code/{code}")
     @Produces(MediaType.APPLICATION_JSON)
     public Codetable getCategoryItem(@PathParam("category") String category, @PathParam("code") Integer code) {
-        return codeTableService.getCategoryItem(category,code);
+        return codeTableService.getCategoryItem(category, code);
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void addCategory(Codetable category) {
+       codeTableService.addCodetableRecord(category);
     }
 }

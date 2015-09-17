@@ -1,35 +1,34 @@
-define(['angular', 'modules/master/service'], function(angular) {
-    angular.module('masterControllers', ['masterServices','restangular']
-    ).controller('MasterListController', function($scope, $state, Restangular, masterService) {
-        masterService.getAllCategories().getList().then(function (data) {
-           $scope.categories = data;
-        });
+define(['angular', 'modules/master/service'], function(angular) {angular.module('masterControllers', ['masterServices','restangular'])
+    .controller('MasterController', function($scope, $state, Restangular, masterService) {
+        $state.transitionTo('master.list');
+    }).controller('MasterListController', function($scope, $state, Restangular, masterService) {
 
-        $state.go("master.list");
+        masterService.getAllCategories().getList().then(function (data) {
+            $scope.categories = data;
+        });
 
         $scope.create = function() {
             $state.go("master.create");
         };
 
         $scope.update = function() {
-            console.log("calling update method--------------------------");
             $state.go("master.update");
         };
 
         $scope.delete = function() {
-            console.log("calling delete method--------------------------");
             $state.go("master.list");
         };
-
-
-    }).controller('MasterCreateController', function($scope) {
-        $scope.category = {
-            category : 'create',
-            code : '1',
-            label : 'Red',
-            desc : 'Red Color',
-            order : 1
-        };
+    }).controller('MasterCreateController', function($scope,$state,masterService) {
+        $scope.addCategory = function() {
+            console.log("===================create category==========================")
+            var category = $scope.category;
+            masterService.addCategory(category).then(function(data) {
+                console.log("success")
+                $state.transitionTo("master.list");
+            }, function(data) {
+                console.log("failure");
+            });
+        }
     }).controller('MasterUpdateController', function($scope) {
         $scope.category = {
             category : 'update',

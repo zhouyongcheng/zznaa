@@ -38,7 +38,7 @@ define([
                 }).state('master', {
                     url: '/master',
                     templateUrl: 'modules/master/master.html',
-                    controller: 'MasterListController'
+                    controller: 'MasterController'
                 }).state('master.list', {
                     url: '/list',
                     templateUrl: 'modules/master/list.html',
