@@ -1,7 +1,8 @@
 define(['angular','restangular'], function(angular) {
     angular.module('masterServices', ['restangular']).factory('masterService', function(Restangular) {
-        //return Restangular.all('/api/categories');
+
         var categories = Restangular.all('/api/categories');
+
         return {
             getAllCategories : function() {
                 return categories;
@@ -15,7 +16,7 @@ define(['angular','restangular'], function(angular) {
             addCategory : function(category) {
                 return categories.post(category);
             },
-            delCategory : function(ctype, ccode) {
+            findCategory : function(ctype, ccode) {
                 return categories.one(ctype, ccode);
             }
         };

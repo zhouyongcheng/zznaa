@@ -1,11 +1,11 @@
 define(['angular', 'modules/master/service'], function(angular) {angular.module('masterControllers', ['masterServices','restangular'])
     .controller('MasterController', function($scope, $state, Restangular, masterService) {
+
         $state.transitionTo('master.list');
+
     }).controller('MasterListController', function($scope, $state, Restangular, masterService) {
 
-        masterService.getAllCategories().getList().then(function (data) {
-            $scope.categories = data;
-        });
+        $scope.categories = masterService.getAllCategories().getList().$object;
 
         $scope.create = function() {
             $state.go("master.create");
@@ -16,12 +16,15 @@ define(['angular', 'modules/master/service'], function(angular) {angular.module(
         };
 
         $scope.delete = function(ctype, ccode) {
-            masterService.delCategory(ctype, ccode).remove().then(function(data){
-                $state.transitionTo('master.list');
-                console.log("success while delete category" + data);
-            }, function(data) {
-                console.log("error while delete category" + data);
-            });
+           masterService.findCategory(ctype, ccode).remove().then(function () {
+               var r = _.find($scope.categories, function(o) {
+                   return o.category == ctype && o.code == ccode;
+               });
+               var index = $scope.categories.indexOf(r);
+               if (index > -1) {
+                   $scope.categories.splice(index, 1);
+               }
+           });
         };
     }).controller('MasterCreateController', function($scope,$state,masterService) {
         $scope.addCategory = function() {
