@@ -19,11 +19,12 @@ public class CategoryService {
     @Inject
     private CodeTableService codeTableService;
 
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public List<Option> getCategoryOptions(@QueryParam("type") String category) {
-//        return codeTableService.getCodeValues(category);
-//    }
+    @GET
+    @Path("{category}/options")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Option> getOptions(@PathParam("category") String category) {
+        return codeTableService.getOptions(category);
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -39,14 +40,7 @@ public class CategoryService {
     }
 
     @GET
-    @Path("option/{category}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Option> getCategoriesByType(@PathParam("category") String category) {
-        return codeTableService.getOptions(category);
-    }
-
-    @GET
-    @Path("{category}/code/{code}")
+    @Path("{category}/{code}")
     @Produces(MediaType.APPLICATION_JSON)
     public Codetable getCategoryItem(@PathParam("category") String category, @PathParam("code") Integer code) {
         return codeTableService.getCategoryItem(category, code);
@@ -58,13 +52,19 @@ public class CategoryService {
        codeTableService.addCodetableRecord(category);
     }
 
+    @PUT
+    @Path("{category}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void updCategory(Codetable category) {
+        codeTableService.updCodetableRecord(category);
+    }
+
     @DELETE
     @Path("/{category}/{code}")
     @Produces(MediaType.TEXT_PLAIN)
     public Response delCategory(@PathParam("category") String category, @PathParam("code") Integer code) {
         Response r = null;
         try {
-            System.out.println("step into delCategory java method");
             codeTableService.delCategory(category, code);
             r = Response.ok("OK").build();
         } catch (Exception e) {

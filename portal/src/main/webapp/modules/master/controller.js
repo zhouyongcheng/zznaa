@@ -5,18 +5,21 @@ define(['angular', 'modules/master/service'], function(angular) {angular.module(
 
     }).controller('MasterListController', function($scope, $state, Restangular, masterService) {
 
-        $scope.categories = masterService.getAllCategories().getList().$object;
+        Restangular.all("/api/categories").getList().then(function(data) {
+            $scope.categories = data;
+        });
 
         $scope.create = function() {
             $state.go("master.create");
         };
 
-        $scope.update = function() {
-            $state.go("master.update");
+        $scope.update = function (ctype, ccode) {
+            // pass parameter to the url belong to the master.update
+            $state.go('master.update', {category:ctype, code:ccode});
         };
 
         $scope.delete = function(ctype, ccode) {
-           masterService.findCategory(ctype, ccode).remove().then(function () {
+            $scope.categories.one(ctype, ccode).remove().then(function () {
                var r = _.find($scope.categories, function(o) {
                    return o.category == ctype && o.code == ccode;
                });
@@ -37,14 +40,21 @@ define(['angular', 'modules/master/service'], function(angular) {angular.module(
                 console.log("failure");
             });
         }
-    }).controller('MasterUpdateController', function($scope) {
-        $scope.category = {
-            category : 'update',
-            code : '1',
-            label : 'Red',
-            desc : 'Red Color',
-            order : 1
-        };
+    }).controller('MasterUpdateController', function($scope,$state, Restangular, $stateParams) {
 
+        console.log("-----------------------------");
+        console.log($stateParams.category);
+        console.log("-----------------------------");
+
+        var allCategories = Restangular.all('/api/categories');
+
+        allCategories.one($stateParams.category, $stateParams.code).get().then(function (data) {
+            $scope.category = data;
+        });
+
+        $scope.update = function() {
+            $scope.category.save();
+            $state.go('master.list');
+        }
     });
 });

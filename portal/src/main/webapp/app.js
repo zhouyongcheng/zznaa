@@ -48,7 +48,7 @@ define([
                     templateUrl: 'modules/master/create.html',
                     controller: 'MasterCreateController'
                 }).state('master.update', {
-                    url: '/update',
+                    url: '/update/:category/:code',
                     templateUrl: 'modules/master/update.html',
                     controller: 'MasterUpdateController'
                 }).state('login', {
