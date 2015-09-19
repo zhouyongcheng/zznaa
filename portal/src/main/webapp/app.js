@@ -19,6 +19,7 @@ define([
     return angular.module('portal',
         ['ui.router',
          'ngFileUpload',
+         'restangular',
          'masterModule',
          'projectModule',
          'loginModule',
@@ -29,7 +30,7 @@ define([
          'allianceModule',
          'uploadModule'
         ])
-        .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
+        .config(['$stateProvider', '$urlRouterProvider',function($stateProvider) {
             $stateProvider
                 .state('upload', {
                     url: '/upload',
@@ -40,6 +41,11 @@ define([
                     templateUrl: 'modules/master/master.html',
                     controller: 'MasterController'
                 }).state('master.list', {
+                    resolve : {
+                        categories : function(Restangular) {
+                            return Restangular.all('/api/categories').getList().$object;
+                        }
+                    },
                     url: '/list',
                     templateUrl: 'modules/master/list.html',
                     controller: 'MasterListController'

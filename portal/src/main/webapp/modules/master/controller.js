@@ -1,21 +1,18 @@
-define(['angular', 'modules/master/service'], function(angular) {angular.module('masterControllers', ['masterServices','restangular'])
-    .controller('MasterController', function($scope, $state, Restangular, masterService) {
-
+define(['angular'], function(angular) {angular.module('masterControllers', ['restangular'])
+    .controller('MasterController', function($scope, $state, Restangular) {
+        // when move to master page, redirect to master.list
         $state.transitionTo('master.list');
+    }).controller('MasterListController', function($scope, categories, $state, Restangular) {
 
-    }).controller('MasterListController', function($scope, $state, Restangular, masterService) {
-
-        Restangular.all("/api/categories").getList().then(function(data) {
-            $scope.categories = data;
-        });
+        $scope.categories = categories;
 
         $scope.create = function() {
-            $state.go("master.create");
+            $state.transitionTo("master.create");
         };
 
         $scope.update = function (ctype, ccode) {
             // pass parameter to the url belong to the master.update
-            $state.go('master.update', {category:ctype, code:ccode});
+            $state.transitionTo('master.update', {category:ctype, code:ccode});
         };
 
         $scope.delete = function(ctype, ccode) {
@@ -29,32 +26,21 @@ define(['angular', 'modules/master/service'], function(angular) {angular.module(
                }
            });
         };
-    }).controller('MasterCreateController', function($scope,$state,masterService) {
+    }).controller('MasterCreateController', function($scope,$state, Restangular) {
         $scope.addCategory = function() {
-            console.log("===================create category==========================")
-            var category = $scope.category;
-            masterService.addCategory(category).then(function(data) {
-                console.log("success")
+            Restangular.all('/api/categories').post($scope.category).then(function() {
                 $state.transitionTo("master.list");
-            }, function(data) {
-                console.log("failure");
             });
         }
-    }).controller('MasterUpdateController', function($scope,$state, Restangular, $stateParams) {
-
-        console.log("-----------------------------");
-        console.log($stateParams.category);
-        console.log("-----------------------------");
-
+    }).controller('MasterUpdateController', function($scope, $state, Restangular, $stateParams) {
         var allCategories = Restangular.all('/api/categories');
-
         allCategories.one($stateParams.category, $stateParams.code).get().then(function (data) {
             $scope.category = data;
         });
-
         $scope.update = function() {
-            $scope.category.save();
-            $state.go('master.list');
+            $scope.category.save().then(function() {
+                $state.transitionTo('master.list');
+            });
         }
     });
 });
