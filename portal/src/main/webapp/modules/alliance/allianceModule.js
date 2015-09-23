@@ -1,3 +1,3 @@
-define(['angular'], function(angular) {
-    return angular.module('allianceModule', []);
+define(['angular', 'js/directive'], function(angular) {
+    return angular.module('allianceModule', ['atm.directives']);
 });

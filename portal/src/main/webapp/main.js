@@ -51,8 +51,7 @@ require.config({
 require([
     'angular',
     'app',
-    'domReady',
-    'js/directive'
+    'domReady'
 ], function(angular,  app, domReady) {
     'use strict';
     domReady(function() {
