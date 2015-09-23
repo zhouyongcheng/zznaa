@@ -10,6 +10,8 @@
     <option value="">---请选择---</option>
 </select>
 
-<select ng-model="area" ng-options="m.code as m.name for m in areas">
+<select ng-model="area"
+        ng-options="m.code as m.name for m in areas"
+        ng-change="changeArea()">
     <option value="">---请选择---</option>
 </select>
