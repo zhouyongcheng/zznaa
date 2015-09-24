@@ -11,5 +11,14 @@ define(['angular'], function(angular) {
                 });
             }
         };
-    });
+    }).directive('atmLocation', function() {
+        return {
+            restrict : 'AE',
+            replace : true,
+            templateUrl : js/template/location.html,
+            link : function(scope, elem, attr) {
+
+            }
+        };
+   });
 });
