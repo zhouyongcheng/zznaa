@@ -26,7 +26,10 @@
         <sqlMapGenerator targetPackage="cn.com.zzn.persist.mapper" targetProject="/home/cmwin/IdeaProjects/zznaa/persist/src/main/resources" />
         <javaClientGenerator type="XMLMAPPER" targetPackage="cn.com.zzn.persist.client" targetProject="/home/cmwin/IdeaProjects/zznaa/persist/src/main/java" />
 
-        <table schema="atm" tableName="codetable" />
+        <!--<table schema="atm" tableName="codetable" />-->
+        <table schema="atm" tableName="province" />
+        <table schema="atm" tableName="city" />
+        <table schema="atm" tableName="area" />
 
     </context>
 </generatorConfiguration>

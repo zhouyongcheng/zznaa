@@ -1,20 +1,18 @@
-<div class="form-horizontal">
-    <div class="form-group">
-        <label class="col-md-2 control-label">
-            地址
-        </label>
-        <div class="col-md-10">
-            <select class="form-control" ng-model="address.province" ng-options="key as key for (key,value) in division"
-                    ng-change="address.city='';address.district='';">
-                <option value="">省</option>
-            </select>
-            <select class="form-control" ng-model="address.city" ng-options="key as key for (key,value) in division[address.province]"
-                    ng-change="address.district='';">
-                <option value="">市</option>
-            </select>
-            <select class="form-control" ng-model="address.district" ng-options="value as value for value in division[address.province][address.city]">
-                <option value="">区</option>
-            </select>
-        </div>
-    </div>
-</div
+<div>
+<select ng-model="province"
+        ng-options="m.code as m.name for m in provinces"
+        ng-change="changeProvince(province)">
+    <option value="">please select</option>
+</select>
+
+<select ng-model="city"
+        ng-options="m.code as m.name for m in cities"
+        ng-change="changeCity(city)">
+    <option value="">please select</option>
+</select>
+
+<select ng-model="area"
+        ng-options="m.code as m.name for m in areas">
+    <option value="">please select</option>
+</select>
+</div>

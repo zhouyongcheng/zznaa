@@ -69,7 +69,8 @@ define([
                     controller: 'BuyingController'
                 }).state('selling', {
                     url: '/selling',
-                    templateUrl: 'modules/selling/selling.html'
+                    templateUrl: 'modules/selling/selling.html',
+                    controller : 'SellingController'
                 }).state('repository', {
                     url: '/repository',
                     templateUrl: 'modules/repository/repository.html'

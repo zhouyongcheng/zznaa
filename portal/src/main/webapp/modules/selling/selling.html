@@ -1,1 +1,17 @@
-<div>着急买的房源</div>
+<select ng-model="province"
+        ng-options="m.code as m.name for m in provinces"
+        ng-change="changeProvince(province)">
+    <option value="">---请选择---</option>
+</select>
+
+<select ng-model="city"
+        ng-options="m.code as m.name for m in cities"
+        ng-change="changeCity(city)">
+    <option value="">---请选择---</option>
+</select>
+
+<select ng-model="area"
+        ng-options="m.code as m.name for m in areas"
+        ng-change="changeArea()">
+    <option value="">---请选择---</option>
+</select>

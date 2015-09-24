@@ -1,7 +1,9 @@
 package cn.com.zzn.persist.modules;
 
 import cn.com.zzn.persist.service.CodeTableService;
+import cn.com.zzn.persist.service.LocationDao;
 import cn.com.zzn.persist.service.impl.CodeTableServiceImpl;
+import cn.com.zzn.persist.service.impl.LocationDaoImpl;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -28,6 +30,7 @@ public class ZznPersistModule {
 
     public static void bind(final ServiceBinder binder) {
         binder.bind(CodeTableService.class, CodeTableServiceImpl.class);
+        binder.bind(LocationDao.class, LocationDaoImpl.class);
     }
 
     @Scope(ScopeConstants.DEFAULT)
