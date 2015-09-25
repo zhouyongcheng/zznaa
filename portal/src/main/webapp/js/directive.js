@@ -17,6 +17,11 @@ define(['angular','restangular'], function(angular) {
                 restrict: 'AE',
                 replace: true,
                 templateUrl: 'js/template/location.html',
+                scope : {
+                    province : '=',
+                    city : '=',
+                    area : '='
+                },
                 link : function(scope, elem, attr) {
                     var location = Restangular.all('/api/location');
                     scope.province = "";

@@ -76,7 +76,8 @@ define([
                     templateUrl: 'modules/repository/repository.html'
                 }).state('alliance', {
                     url: '/alliance',
-                    templateUrl: 'modules/alliance/alliance.html'
+                    templateUrl: 'modules/alliance/alliance.html',
+                    controller : 'AllianceController'
                 }).state('projects', {
                     url: '/projects',
                     templateUrl : 'modules/project/projects.html'
