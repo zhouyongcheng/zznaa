@@ -18,5 +18,8 @@ define(['angular','restangular'], function(angular) {
             $scope.area = "";
             $scope.areas = location.all('areas/'+city).getList().$object;
         }
+        $scope.changeArea = function() {
+            console.log($scope.province + ':' + $scope.city + ':' + $scope.area);
+        }
     });
 });
