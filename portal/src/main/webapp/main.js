@@ -8,6 +8,8 @@ require.config({
         domReady : 'bower_components/requirejs-domready/domReady',
         lodash : 'bower_components/lodash/lodash.min',
         restangular : 'bower_components/restangular/dist/restangular.min',
+        angularJwt : 'bower_components/angular-jwt/dist/angular-jwt.min',
+        angularLocalStorage : 'bower_components/angular-local-storage/dist/angular-local-storage.min',
         masterModule: 'modules/master/masterModule',
         loginModule : 'modules/login/loginModule',
         brokerModule : 'modules/broker/brokerModule',
@@ -38,6 +40,12 @@ require.config({
         },
         restangular : {
             deps : ['angular','lodash']
+        },
+        angularJwt : {
+            deps : ['angular']
+        },
+        angularLocalStorage : {
+            deps : ['angular']
         },
         fileUpload : {
             deps : ['angular']

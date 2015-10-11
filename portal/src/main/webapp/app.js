@@ -4,6 +4,8 @@ define([
     'fileUploadShim',
     'fileUpload',
     'restangular',
+    'angularJwt',
+    'angularLocalStorage',
     'ngFileUpload',
     'masterModule',
     'loginModule',
@@ -20,6 +22,8 @@ define([
         ['ui.router',
          'ngFileUpload',
          'restangular',
+         'angular-jwt',
+         'LocalStorageModule',
          'masterModule',
          'projectModule',
          'loginModule',
@@ -30,7 +34,26 @@ define([
          'allianceModule',
          'uploadModule'
         ])
-        .config(['$stateProvider', '$urlRouterProvider',function($stateProvider) {
+        .config(['$stateProvider','$httpProvider','jwtInterceptorProvider','localStorageServiceProvider',function($stateProvider,$httpProvider,jwtInterceptorProvider, localStorageServiceProvider) {
+            // used for CORS
+            $httpProvider.defaults.withCredentials = true;
+
+            localStorageServiceProvider.setPrefix('portal').setNotify(true, true)
+
+            // used for jwt begin
+            jwtInterceptorProvider.tokenGetter = ['jwtHelper','localStorageService',function(jwtHelper,localStorageService) {
+                if (localStorageService.isSupported) {
+                    var jwt = localStorageService.get('jwt');
+                    var detail = jwtHelper.decodeToken(jwt);
+                    console.log("---------------------------");
+                    console.log("detail token : " + detail);
+                    console.log("---------------------------");
+                    return jwt;
+                }
+            }];
+            $httpProvider.interceptors.push('jwtInterceptor');
+                // used for jwt end
+
             $stateProvider
                 .state('upload', {
                     url: '/upload',
@@ -59,7 +82,8 @@ define([
                     controller: 'MasterUpdateController'
                 }).state('login', {
                     url: '/login',
-                    templateUrl: 'modules/login/login.html'
+                    templateUrl: 'modules/login/login.html',
+                    controller : 'LoginController'
                 }).state('broker', {
                     url: '/broker',
                     templateUrl: 'modules/broker/broker.html'
