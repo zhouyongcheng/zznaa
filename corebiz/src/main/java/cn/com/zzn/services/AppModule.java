@@ -3,6 +3,8 @@ package cn.com.zzn.services;
 import java.io.IOException;
 
 import cn.com.zzn.persist.modules.ZznPersistModule;
+import cn.com.zzn.services.common.AuthService;
+import cn.com.zzn.services.common.AuthServiceImpl;
 import org.apache.tapestry5.*;
 import org.apache.tapestry5.ioc.Configuration;
 import org.apache.tapestry5.ioc.MappedConfiguration;
@@ -12,6 +14,7 @@ import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.ImportModule;
 import org.apache.tapestry5.ioc.annotations.Local;
 import org.apache.tapestry5.ioc.services.ApplicationDefaults;
+import org.apache.tapestry5.ioc.services.FactoryDefaults;
 import org.apache.tapestry5.ioc.services.SymbolProvider;
 import org.apache.tapestry5.services.*;
 import org.apache.tapestry5.services.javascript.JavaScriptStack;
@@ -25,32 +28,20 @@ import org.tynamo.resteasy.ResteasySymbols;
  * configure and extend Tapestry, or to place your own service definitions.
  */
 @ImportModule(ZznPersistModule.class)
-public class AppModule
-{
-    public static void bind(ServiceBinder binder)
-    {
-        // binder.bind(MyServiceInterface.class, MyServiceImpl.class);
+public class AppModule {
 
-        // Make bind() calls on the binder object to define most IoC services.
-        // Use service builder methods (example below) when the implementation
-        // is provided inline, or requires more initialization than simply
-        // invoking the constructor.
+    public static void bind(ServiceBinder binder) {
+        binder.bind(AuthService.class, AuthServiceImpl.class);
     }
 
-    public static void contributeFactoryDefaults(
-            MappedConfiguration<String, Object> configuration)
-    {
-        // The application version is incorporated into URLs for most assets. Web
-        // browsers will cache assets because of the far future expires header.
-    	// If existing assets change (or if the Tapestry version changes) you
-    	// should also change this number, to force the browser to download new
-    	// versions. This overrides Tapesty's default (a random hexadecimal
-    	// number), but may be further overriden by DevelopmentModule or QaModule 
-    	// by adding the same key in the contributeApplicationDefaults method.
+    @Contribute(SymbolProvider.class)
+    @FactoryDefaults
+    public static void setupSymbols(MappedConfiguration<String, Object> configuration) {
         configuration.override(SymbolConstants.APPLICATION_VERSION, "1.0-SNAPSHOT");
-		configuration.override(SymbolConstants.PRODUCTION_MODE, false);
-        configuration.override(ResteasySymbols.CORS_ENABLED, true);
+        configuration.override(ResteasySymbols.CORS_ENABLED, false);
+        configuration.override(SymbolConstants.PRODUCTION_MODE, false);
     }
+
 
     public static void contributeApplicationDefaults(
             MappedConfiguration<String, Object> configuration)
