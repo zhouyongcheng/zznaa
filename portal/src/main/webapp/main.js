@@ -8,6 +8,7 @@ require.config({
         domReady : 'bower_components/requirejs-domready/domReady',
         lodash : 'bower_components/lodash/lodash.min',
         restangular : 'bower_components/restangular/dist/restangular.min',
+        adminlte : 'bower_components/AdminLTE/dist/js/app.min',
         masterModule: 'modules/master/masterModule',
         loginModule : 'modules/login/loginModule',
         brokerModule : 'modules/broker/brokerModule',
@@ -15,7 +16,6 @@ require.config({
         sellingModule : 'modules/selling/sellingModule',
         repositoryModule : 'modules/repository/repositoryModule',
         allianceModule : 'modules/alliance/allianceModule',
-        masterModule : 'modules/master/masterModule',
         uploadModule : 'modules/upload/uploadModule',
         projectModule : 'modules/project/projectModule',
         ngFileUpload : 'bower_components/angular-file-upload/dist/angular-file-upload.min',
@@ -44,6 +44,9 @@ require.config({
         },
         ngFileUpload : {
             deps : ['angular']
+        },
+        adminlte : {
+            deps : ['jquery','twitter']
         }
     }
 });
@@ -51,6 +54,7 @@ require.config({
 require([
     'angular',
     'app',
+    'adminlte',
     'domReady'
 ], function(angular,  app, domReady) {
     'use strict';
