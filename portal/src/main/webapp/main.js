@@ -51,9 +51,6 @@ require.config({
         },
         ngFileUpload : {
             deps : ['angular']
-        },
-        adminlte : {
-            deps : ['jquery','twitter']
         }
     }
 });
@@ -61,7 +58,6 @@ require.config({
 require([
     'angular',
     'app',
-    'adminlte',
     'domReady'
 ], function(angular,  app, domReady) {
     'use strict';
