@@ -17,7 +17,6 @@ require.config({
         sellingModule : 'modules/selling/sellingModule',
         repositoryModule : 'modules/repository/repositoryModule',
         allianceModule : 'modules/alliance/allianceModule',
-        masterModule : 'modules/master/masterModule',
         uploadModule : 'modules/upload/uploadModule',
         projectModule : 'modules/project/projectModule',
         ngFileUpload : 'bower_components/angular-file-upload/dist/angular-file-upload.min',
@@ -52,6 +51,9 @@ require.config({
         },
         ngFileUpload : {
             deps : ['angular']
+        },
+        adminlte : {
+            deps : ['jquery','twitter']
         }
     }
 });
@@ -59,6 +61,7 @@ require.config({
 require([
     'angular',
     'app',
+    'adminlte',
     'domReady'
 ], function(angular,  app, domReady) {
     'use strict';
