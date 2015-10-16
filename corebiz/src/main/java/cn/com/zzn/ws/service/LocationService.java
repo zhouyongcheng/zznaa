@@ -30,7 +30,8 @@ public class LocationService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProviences() {
         try {
-            final GenericEntity<List<Province>> entity = new GenericEntity<List<Province>>(locationDao.getProvinces()){};
+            final GenericEntity<List<Province>> entity = new GenericEntity<List<Province>>(locationDao.getProvinces()) {
+            };
             return Response.status(Response.Status.OK).entity(entity).build();
         } catch (Exception e) {
             log.error(e.getMessage());
@@ -43,7 +44,8 @@ public class LocationService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCities(@PathParam("provinceCode") String provinceCode) {
         try {
-            final GenericEntity<List<City>> entity = new GenericEntity<List<City>>(locationDao.getCities(provinceCode)){};
+            final GenericEntity<List<City>> entity = new GenericEntity<List<City>>(locationDao.getCities(provinceCode)) {
+            };
             return Response.status(Response.Status.OK).entity(entity).build();
         } catch (Exception e) {
             log.error(e.getMessage());

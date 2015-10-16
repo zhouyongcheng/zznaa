@@ -7,7 +7,6 @@ define([
     'angularJwt',
     'angularLocalStorage',
     'ngFileUpload',
-    'js/bs_leftnavi',
     'masterModule',
     'loginModule',
     'brokerModule',
@@ -35,10 +34,10 @@ define([
          'allianceModule',
          'uploadModule'
         ])
-        .config(['$stateProvider','$httpProvider','jwtInterceptorProvider','localStorageServiceProvider',function($stateProvider,$httpProvider,jwtInterceptorProvider, localStorageServiceProvider) {
+        .config(['$stateProvider','$httpProvider','RestangularProvider','jwtInterceptorProvider','localStorageServiceProvider',function($stateProvider,$httpProvider,RestangularProvider,jwtInterceptorProvider, localStorageServiceProvider) {
             // used for CORS
             $httpProvider.defaults.withCredentials = true;
-
+            RestangularProvider.setBaseUrl("http://192.168.0.103:8080");
             localStorageServiceProvider.setPrefix('portal').setNotify(true, true)
 
             // used for jwt begin
