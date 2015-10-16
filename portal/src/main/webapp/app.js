@@ -45,10 +45,10 @@ define([
             jwtInterceptorProvider.tokenGetter = ['jwtHelper','localStorageService',function(jwtHelper,localStorageService) {
                 if (localStorageService.isSupported) {
                     var jwt = localStorageService.get('jwt');
-                    var detail = jwtHelper.decodeToken(jwt);
-                    console.log("---------------------------");
-                    console.log("detail token : " + detail);
-                    console.log("---------------------------");
+                    //var detail = jwtHelper.decodeToken(jwt);
+                    //console.log("---------------------------");
+                    //console.log("detail token : " + detail);
+                    //console.log("---------------------------");
                     return jwt;
                 }
             }];
