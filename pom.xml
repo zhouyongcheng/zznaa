@@ -10,6 +10,7 @@
         <module>persist</module>
         <module>corebiz</module>
         <module>portal</module>
+        <module>atmbpm</module>
     </modules>
     <name>for zznaa project</name>
     <url>http://maven.apache.org</url>
@@ -17,6 +18,11 @@
     <dependencyManagement>
 
         <dependencies>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j-release-version}</version>
+            </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
@@ -27,18 +33,29 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback-version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.tapestry</groupId>
+                <artifactId>tapestry-core</artifactId>
+                <version>${tapestry-release-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.tapestry</groupId>
+                <artifactId>tapestry-webresources</artifactId>
+                <version>${tapestry-release-version}</version>
+            </dependency>
         </dependencies>
 
     </dependencyManagement>
 
     <properties>
         <resteasy-version>3.0.9.Final</resteasy-version>
+        <slf4j-release-version>1.7.9</slf4j-release-version>
         <logback-version>1.1.2</logback-version>
         <jdk-version>1.7</jdk-version>
         <google-kaptcha-version>2.3.2</google-kaptcha-version>
-        <tapestry-release-version>5.4-beta-26</tapestry-release-version>
+        <tapestry-release-version>5.4-beta-35</tapestry-release-version>
         <tapestry-security-version>0.6.2</tapestry-security-version>
-        <tapestry-kaptcha-version>5.4-beta-26</tapestry-kaptcha-version>
+        <tapestry-kaptcha-version>5.4-beta-35</tapestry-kaptcha-version>
         <ehcache-core-version>2.9.0</ehcache-core-version>
         <!-- persist layer configuration-->
         <mybatis-version>3.2.7</mybatis-version>

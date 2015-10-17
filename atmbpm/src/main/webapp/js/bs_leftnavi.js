@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+$(document).ready(function () {
     var nav = function () {
         $('.gw-nav > li > a').click(function () {
             var gw_nav = $('.gw-nav');
@@ -39,3 +39,4 @@ define(['jquery'], function($) {
     };
     nav();
 });
+

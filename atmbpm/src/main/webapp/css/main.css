@@ -1,0 +1,168 @@
+
+body {
+    overflow-x: hidden;
+    font-family:"Microsoft YaHei";
+    color: white;
+    background-color: #3C3F41;
+    /*background-image: url("../img/bg.png");*/
+
+}
+
+input {
+    background-color: #101010;
+}
+
+header {
+    height: 45px;
+    line-height: 45px;
+    width: 100%;
+    padding: 0 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(45, 45, 45, .9);
+}
+header a{ color:#fff}
+a:link {
+    color: #333 !important;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+}
+
+input, :link, :hover, :focus {
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+}
+
+a:hover {
+    text-decoration: none;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+}
+
+img {
+    vertical-align: baseline;
+}
+
+i, em {
+    font-style: normal;
+}
+
+li {
+    list-style: none
+}
+
+.green {
+    color: #00e8a9 !important;
+}
+
+.btn {
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+}
+
+.green_btn {
+    background: #00b584;
+    color: #fff;
+}
+
+.green_btn:hover {
+    background: #03926b;
+    color: #fff;
+}
+
+nav, ul, li {
+    overflow: hidden;
+    margin: 0;
+    padding: 0 !important
+}
+
+nav {
+    width: 43%;
+    padding: 0 20px !important;
+}
+
+nav ul li {
+    text-align: center;
+}
+
+nav ul li a {
+    display: inline-block;
+    width: 100%
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background: #00b584;
+    border-bottom: 2px solid #00b584;
+    color: #fff !important;
+}
+
+.logo {
+    width: 220px;
+    height: 45px;
+    display: block;
+}
+
+.logo img {
+}
+
+.head_search {
+    width: 240px;
+    border-radius: 8px;
+    line-height: 36px;
+    color: #ddd;
+    border-left: 1px solid #000;
+    border:none;
+    background: #444;
+    text-indent: 1rem;
+    padding-right: 1rem;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+}
+
+header .btn {
+    line-height: 36px !important;
+}
+
+.head_search:focus {
+    background: #00b584;
+    color: #fff;
+    border: 1px solid #00b584;
+}
+
+.unit {
+    color: #fff;
+}
+
+.unit em {
+    padding-right: 10px;
+}
+
+.unit em i {
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 8px 5px 0 0;
+}
+
+.unit em i img {
+    width: 100%;
+}
+
+.content {
+    margin: 55px 0 0 240px;
+    padding: 50px;
+}
+.form-control{ background:#bbb !important}

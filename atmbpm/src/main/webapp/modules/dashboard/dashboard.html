@@ -1,0 +1,62 @@
+<header>
+    <span class="logo pull-left">
+        Logo
+    </span>
+    <nav class="pull-left">
+        <ul>
+            <li class="col-md-2"><a href="#" class="active">首页</a></li>
+            <li class="col-md-2"><a href="#">房源</a></li>
+            <li class="col-md-2"><a href="#">二手房</a></li>
+            <li class="col-md-2"><a href="#">驻场</a></li>
+            <li class="col-md-2"><a href="#">报备</a></li>
+            <li class="col-md-2"><a href="#">我的</a></li>
+        </ul>
+    </nav>
+    <input type="text" class="head_search" placeholder="请输入您要查找的内容"/>
+    <input type="submit" class="btn green_btn" value="查找"/>
+    <span class="unit pull-right">
+        <em><a href="#" class="green"><i><img src="img/shit_head.jpg"/></i>我是用户名</a></em>
+        <a href="#" ng-click="logout()">退出</a> |
+        <a href="#">切换账号</a>
+    </span>
+</header>
+<div ng-cloak>
+    <div class="gw-sidebar">
+        <div id="gw-sidebar" class="gw-sidebar">
+            <div class="nano-content">
+                <ul class="gw-nav gw-nav-list">
+                    <li class="init-un-active"><a href="javascript:void(0)"> <span class="gw-menu-text">工作流管理</span>
+                    </a></li>
+                    <li class="init-arrow-down"><a href="javascript:void(0)"> <span class="gw-menu-text">休假管理</span> <b
+                            class="gw-arrow"></b> </a>
+                        <ul class="gw-submenu">
+                            <li><a ui-sref="dashboard.inbox">我的任务</a></li>
+                            <li><a ui-sref="dashboard.vacation">休假申请</a></li>
+                        </ul>
+                    </li>
+                    <li class="init-arrow-down"><a href="javascript:void(0)"> <span
+                            class="gw-menu-text">Category 2</span> <b class="gw-arrow icon-arrow-up8"></b> </a>
+                        <ul class="gw-submenu">
+                            <li><a href="#">Menu 1</a></li>
+                            <li><a href="#">Menu 2</a></li>
+                            <li><a href="#">Menu 3</a></li>
+                        </ul>
+                    </li>
+                    <li class="init-arrow-down"><a href="javascript:void(0)"> <span
+                            class="gw-menu-text">Category 3</span> <b></b> </a>
+                        <ul class="gw-submenu">
+                            <li><a href="javascript:void(0)">Menu 1</a></li>
+                            <li><a href="javascript:void(0)">Menu 2</a></li>
+                            <li><a href="javascript:void(0)">Menu 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <ui-view></ui-view>
+    </div>
+</div>
+
+<script src="js/bs_leftnavi.js"></script>

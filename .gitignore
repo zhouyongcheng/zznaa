@@ -1,3 +1,11 @@
+/atmbpm/build.gradle
+/atmbpm/gradlew.bat
+/atmbpm/atmbpm.iml
+/atmbpm/gradlew
+/atmbpm/target
+/atmbpm/src/main/webapp/bower_components
+/atmbpm/src/test
+/atmbpm/src/site
 /corebiz/src/test
 /corebiz/src/site
 /corebiz/gradlew.bat

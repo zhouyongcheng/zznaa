@@ -1,127 +1,79 @@
 define([
     'angular',
     'uiRouter',
-    'fileUploadShim',
-    'fileUpload',
     'restangular',
-    'ngFileUpload',
-    'js/bs_leftnavi',
-    'masterModule',
+    'uiBootstrap',
+    'uiBootstrapTpls',
+    'angularJwt',
+    'angularLocalStorage',
+    'uiMask',
+    'uiEvent',
     'loginModule',
-    'brokerModule',
-    'buyingModule',
-    'sellingModule',
-    'repositoryModule',
-    'allianceModule',
-    'masterModule',
-    'projectModule',
-    'uploadModule'
+    'dashboardModule',
+    'vacationModule',
+    'inboxModule',
+    'testModule'
 ], function(angular) {
-    return angular.module('portal',
+    return angular.module('atmbpm',
         ['ui.router',
-         'ngFileUpload',
          'restangular',
-         'masterModule',
-         'projectModule',
+         'ui.bootstrap',
+         'ui.bootstrap.tpls',
+         'ui.bootstrap.collapse',
+         'angular-jwt',
+         'LocalStorageModule',
+         'ui.mask',
+         'ui.event',
          'loginModule',
-         'brokerModule',
-         'buyingModule',
-         'sellingModule',
-         'repositoryModule',
-         'allianceModule',
-         'uploadModule'
-        ])
-        .config(['$stateProvider', '$urlRouterProvider',function($stateProvider) {
-            $stateProvider
-                .state('upload', {
-                    url: '/upload',
-                    templateUrl: 'modules/upload/upload.html',
-                    controller: 'UploadController'
-                }).state('master', {
-                    url: '/master',
-                    templateUrl: 'modules/master/master.html',
-                    controller: 'MasterController'
-                }).state('master.list', {
-                    resolve : {
-                        categories : function(Restangular) {
-                            return Restangular.all('/api/categories').getList().$object;
-                        }
-                    },
-                    url: '/list',
-                    templateUrl: 'modules/master/list.html',
-                    controller: 'MasterListController'
-                }).state('master.create', {
-                    url: '/create',
-                    templateUrl: 'modules/master/create.html',
-                    controller: 'MasterCreateController'
-                }).state('master.update', {
-                    url: '/update/:category/:code',
-                    templateUrl: 'modules/master/update.html',
-                    controller: 'MasterUpdateController'
-                }).state('login', {
-                    url: '/login',
-                    templateUrl: 'modules/login/login.html'
-                }).state('broker', {
-                    url: '/broker',
-                    templateUrl: 'modules/broker/broker.html'
-                }).state('buying', {
-                    url: '/buying',
-                    templateUrl: 'modules/buying/buying.html',
-                    controller: 'BuyingController'
-                }).state('selling', {
-                    url: '/selling',
-                    templateUrl: 'modules/selling/selling.html',
-                    controller : 'SellingController'
-                }).state('repository', {
-                    url: '/repository',
-                    templateUrl: 'modules/repository/repository.html'
-                }).state('alliance', {
-                    url: '/alliance',
-                    templateUrl: 'modules/alliance/alliance.html',
-                    controller : 'AllianceController'
-                }).state('projects', {
-                    url: '/projects',
-                    templateUrl : 'modules/project/projects.html'
-                }).state('projects.detail', {
-                    views : {
-                        'filters' : {
-                            templateUrl : 'modules/project/filters.html'
-                        },
-                        'menu' : {
-                            templateUrl : 'modules/project/menu.html'
-                        },
-                        'content' : {
-                            templateUrl:'modules/project/content.html'
-                        }
+         'dashboardModule',
+         'vacationModule',
+         'inboxModule',
+         'testModule'
+        ]).config(function($stateProvider,$urlRouterProvider,$httpProvider,jwtInterceptorProvider, localStorageServiceProvider) {
+
+            // used for jwt begin
+            localStorageServiceProvider.setPrefix('atmbpm').setNotify(true, true)
+            jwtInterceptorProvider.tokenGetter = ['jwtHelper','localStorageService',function(jwtHelper,localStorageService) {
+                if (localStorageService.isSupported) {
+                    return localStorageService.get('jwt');
+                }
+            }];
+            $httpProvider.interceptors.push('jwtInterceptor');
+            // used for CORS
+            $httpProvider.defaults.withCredentials = true;
+
+            // used for jwt end
+
+            // init page
+            $urlRouterProvider.otherwise('/login');
+
+            $stateProvider.state('test', {
+                url: '/test',
+                templateUrl: 'modules/test/test.html',
+                controller: 'TestController'
+            }).state('login', {
+                url: '/login',
+                templateUrl: 'modules/login/login.html',
+                controller: 'LoginController'
+            }).state('dashboard', {
+                url: '/dashboard',
+                templateUrl: 'modules/dashboard/dashboard.html',
+                controller: 'DashboardController'
+            }).state('dashboard.inbox', {
+                resolve : {
+                    tasks : function(Restangular, localStorageService, jwtHelper) {
+                        var jwt = localStorageService.get('jwt');
+                        var detail = jwtHelper.decodeToken(jwt);
+                        return Restangular.all('/api/tasks/'+detail.info.userId).getList().$object;
                     }
-                }).state('projects.list', {
-                    url:'/list',
-                    //templateUrl:'modules/project/projects.list.html',
-                    views : {
-                        'filters' : {
-                            templateUrl : 'modules/project/filters.html'
-                        },
-                        'menu' : {
-                            templateUrl : 'modules/project/menu.html'
-                        },
-                        'content' : {
-                            templateUrl:'modules/project/content.html'
-                        }
-                    }
-                }).state('projects.add', {
-                    url:'/add',
-                    //templateUrl:'modules/project/projects.add.html',
-                    views : {
-                        'filters' : {
-                            templateUrl : 'modules/project/filters.html'
-                        },
-                        'menu' : {
-                            templateUrl : 'modules/project/menu.html'
-                        },
-                        'content' : {
-                            templateUrl:'modules/project/content.html'
-                        }
-                    }
-                });
-            }]);
+                },
+                url: '/inbox',
+                templateUrl: 'modules/inbox/inbox.html',
+                controller: 'InboxController'
+            }).state('dashboard.vacation', {
+                url: '/vacation',
+                templateUrl: 'modules/vacation/request.html',
+                controller: 'VacationController'
+            });
+        });
 });

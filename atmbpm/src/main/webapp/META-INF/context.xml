@@ -1,0 +1,17 @@
+<Context antiJARLocking="true" path="/atmbpm">
+    <Resource
+        name="jdbc/atm"
+        factory="com.alibaba.druid.pool.DruidDataSourceFactory"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://192.168.0.118:3306/atm?useUnicode=true&amp;characterEncoding=utf-8"
+        username="xucheng"
+        password="xucheng"
+        maxActive="50"
+        maxWait="15000"
+        removeabandoned="true"
+        removeabandonedtimeout="60"
+        logabandoned="false"
+        filters="stat"/>
+</Context>

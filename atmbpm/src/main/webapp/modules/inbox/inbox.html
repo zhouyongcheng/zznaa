@@ -1,0 +1,20 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>TaskID</th>
+            <th>作业名称</th>
+            <th>分配人</th>
+            <th>归属人</th>
+            <th>描述</th>
+            <th>期间</th>
+        </tr>
+    </thead>
+    <tr ng-repeat="task in tasks">
+        <td>{{task.id}}</td>
+        <td>{{task.name}}</td>
+        <td>{{task.assignee}}</td>
+        <td>{{task.owner}}</td>
+        <td>{{task.description}}</td>
+        <td>{{task.dueDate}}</td>
+    </tr>
+</table>
