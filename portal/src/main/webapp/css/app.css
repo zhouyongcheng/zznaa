@@ -1,0 +1,19 @@
+
+body {
+    font-family: FontAwesome;
+    background-color: #101010;
+}
+
+.header {
+    background-color: #cccccc;
+    border-bottom : 1px solid #333333 ;
+}
+
+.footer {
+    background-color: #cccccc;
+    border-top : 1px solid #333333 ;
+}
+
+#gw-sidebar {
+
+}

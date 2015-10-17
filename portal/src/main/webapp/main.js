@@ -10,6 +10,7 @@ require.config({
         restangular : 'bower_components/restangular/dist/restangular.min',
         angularJwt : 'bower_components/angular-jwt/dist/angular-jwt.min',
         angularLocalStorage : 'bower_components/angular-local-storage/dist/angular-local-storage.min',
+        leftnavi : 'js/bs_leftnavi',
         masterModule: 'modules/master/masterModule',
         loginModule : 'modules/login/loginModule',
         brokerModule : 'modules/broker/brokerModule',
@@ -46,6 +47,9 @@ require.config({
         angularLocalStorage : {
             deps : ['angular']
         },
+        leftnavi : {
+            deps : ['jquery']
+        },
         fileUpload : {
             deps : ['angular']
         },
@@ -58,8 +62,9 @@ require.config({
 require([
     'angular',
     'app',
+    'leftnavi',
     'domReady'
-], function(angular,  app, domReady) {
+], function(angular, app, leftnavi,domReady) {
     'use strict';
     domReady(function() {
         angular.bootstrap(document, ['portal']);

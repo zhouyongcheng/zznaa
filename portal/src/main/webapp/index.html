@@ -1,60 +1,97 @@
 <!doctype html>
 <html lang="zh_CN">
 <head>
-    <meta charset="UTF-8"/>
     <title>Portal</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <script>
-        UPLOADCARE_PUBLIC_KEY = 'your_public_key';
-    </script>
+    <link href="css/bs_leftnavi.css" rel="stylesheet" type="text/css"/>
+    <link href="css/app.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
 </head>
-<body class="container">
-<div ng-cloak>
-    <div class="row">
-    <ul class="nav navbar-nav">
-        <li><a ui-sref="buying">着急买</a></li>
-        <li><a ui-sref="selling">着急卖</a></li>
-        <li><a ui-sref="repository">我的仓库</a></li>
-        <li><a ui-sref="alliance">联盟楼盘</a></li>
-        <li><a ui-sref="master">基础数据</a></li>
-        <li><a ui-sref="projects">项目情报</a></li>
-        <li><a ui-sref="upload">文件上传</a></li>
-    </ul>
+<body>
+<div class="container-fluid">
+
+    <div class="page-header">
+        <h1>乐安家<small>幸福安家</small></h1>
     </div>
 
-    <div class="gw-sidebar">
-        <div id="gw-sidebar" class="gw-sidebar">
-            <div class="nano-content">
-                <ul class="gw-nav gw-nav-list">
-                    <li class="init-un-active"> <a href="javascript:void(0)"> <span class="gw-menu-text">Navigation Menu</span> </a> </li>
-                    <li class="init-arrow-down"> <a href="javascript:void(0)"> <span class="gw-menu-text">Category 1</span> <b class="gw-arrow"></b> </a>
-                        <ul class="gw-submenu">
-                            <li> <a href="#">Menu 1</a> </li>
-                        </ul>
-                    </li>
-                    <li class="init-arrow-down"> <a href="javascript:void(0)"> <span class="gw-menu-text">Category 2</span> <b class="gw-arrow icon-arrow-up8"></b> </a>
-                        <ul class="gw-submenu">
-                            <li> <a href="#">Menu 1</a> </li>
-                            <li> <a href="#">Menu 2</a> </li>
-                            <li> <a href="#">Menu 3</a> </li>
-                        </ul>
-                    </li>
-                    <li class="init-arrow-down"> <a href="javascript:void(0)"> <span class="gw-menu-text">Category 3</span> <b></b> </a>
-                        <ul class="gw-submenu">
-                            <li> <a href="javascript:void(0)">Menu 1</a> </li>
-                            <li> <a href="javascript:void(0)">Menu 2</a> </li>
-                            <li> <a href="javascript:void(0)">Menu 3</a> </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+    <div class="row col-xs-12 header">
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="buying">着急买</a></li>
+            <li><a ui-sref="selling">着急卖</a></li>
+            <li><a ui-sref="repository">我的仓库</a></li>
+            <li><a ui-sref="alliance">联盟楼盘</a></li>
+            <li><a ui-sref="master">基础数据</a></li>
+            <li><a ui-sref="projects">项目情报</a></li>
+            <li><a ui-sref="upload">文件上传</a></li>
+        </ul>
+    </div>
+
+    <div class="row col-xs-12 content">
+        <!--left navi bar-->
+        <div class="col-xs-2 panel panel-default">
+            <ul>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Menu</a></li>
+            </ul>
+
+
+            <!--<div id="gw-sidebar" class="gw-sidebar">-->
+                <!--<div class="nano-content">-->
+                    <!--<ul class="gw-nav gw-nav-list">-->
+                        <!--<li class="init-un-active"><a href="javascript:void(0)"> <span-->
+                                <!--class="gw-menu-text">Navigation Menu</span> </a></li>-->
+                        <!--<li class="init-arrow-down"><a href="javascript:void(0)"> <span-->
+                                <!--class="gw-menu-text">Category 1</span> <b class="gw-arrow"></b> </a>-->
+                            <!--<ul class="gw-submenu">-->
+                                <!--<li><a href="#">Menu 1</a></li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                        <!--<li class="init-arrow-down"><a href="javascript:void(0)"> <span-->
+                                <!--class="gw-menu-text">Category 2</span> <b class="gw-arrow icon-arrow-up8"></b> </a>-->
+                            <!--<ul class="gw-submenu">-->
+                                <!--<li><a href="#">Menu 1</a></li>-->
+                                <!--<li><a href="#">Menu 2</a></li>-->
+                                <!--<li><a href="#">Menu 3</a></li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                        <!--<li class="init-arrow-down"><a href="javascript:void(0)"> <span-->
+                                <!--class="gw-menu-text">Category 3</span> <b></b> </a>-->
+                            <!--<ul class="gw-submenu">-->
+                                <!--<li><a href="javascript:void(0)">Menu 1</a></li>-->
+                                <!--<li><a href="javascript:void(0)">Menu 2</a></li>-->
+                                <!--<li><a href="javascript:void(0)">Menu 3</a></li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <!--main content-->
+        <div class="col-xs-10 panel panel-default" ng-cloak>
+            <section ui-view>Loading...</section>
         </div>
     </div>
 
-
-    <div class="row well">
-        <section ui-view>Loading...</section>
+    <div class="row col-xs-12 footer">
+        this is footer content area
     </div>
 </div>
 <script data-main="main" src="bower_components/requirejs/require.js"></script>
