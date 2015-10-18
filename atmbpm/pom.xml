@@ -127,10 +127,15 @@
         </dependency>
 
         <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid-version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector-java-version}</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -252,9 +257,6 @@
             </build>
         </profile>
     </profiles>
-
-
-
 
     <repositories>
 

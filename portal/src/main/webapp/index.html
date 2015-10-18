@@ -5,8 +5,8 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/mybootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/bs_leftnavi.css" rel="stylesheet" type="text/css"/>
     <link href="css/app.css" rel="stylesheet" type="text/css"/>
     <!--[if lt IE 9]>
@@ -21,8 +21,10 @@
         <h1>乐安家<small>幸福安家</small></h1>
     </div>
 
-    <div class="row col-xs-12 header">
-        <ul class="nav navbar-nav">
+    <nav class="navbar navbar-inverse">
+    	<a class="navbar-brand" href="#">安家中国</a>
+    	<ul class="nav navbar-nav">
+    		<li><a href="#">Home</a></li>
             <li><a ui-sref="buying">着急买</a></li>
             <li><a ui-sref="selling">着急卖</a></li>
             <li><a ui-sref="repository">我的仓库</a></li>
@@ -30,8 +32,11 @@
             <li><a ui-sref="master">基础数据</a></li>
             <li><a ui-sref="projects">项目情报</a></li>
             <li><a ui-sref="upload">文件上传</a></li>
-        </ul>
-    </div>
+    	</ul>
+    </nav>
+
+
+
 
     <div class="row col-xs-12 content">
         <!--left navi bar-->
