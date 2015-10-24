@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="bin/www" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="/usr/bin/node" path-to-js-file="$USER_HOME$/WebstormProjects/bkoffice/bin/www" working-dir="$USER_HOME$/WebstormProjects/bkoffice">
+    <envs>
+      <env name="DEBUG" value="demo:*" />
+    </envs>
+    <browser url="http://localhost:3000/" />
+    <method />
+  </configuration>
+</component>
