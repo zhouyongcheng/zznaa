@@ -1,0 +1,26 @@
+
+<form id="applyVacation" class="form-horizontal">
+    <div class="form-group">
+        <label for="employeeName" class="col-sm-2 control-label">姓名</label>
+        <div class="col-sm-4">
+            <input type="text" id="employeeName" class="form-control" ng-model="vacation.employeeName" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="numberOfDays" class="col-sm-2 control-label">休假天数</label>
+        <div class="col-sm-4">
+            <input type="text" id="numberOfDays" class="form-control" ng-model="vacation.numberOfDays" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="vacationMotivation" class="col-sm-2 control-label">休假原因</label>
+        <div class="col-sm-4">
+            <input type="text" id="vacationMotivation" class="form-control" ng-model="vacation.vacationMotivation" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-3">
+            <button class="btn btn-lg btn-primary" ng-click="doApplyVacation()">添加</button>
+        </div>
+    </div>
+</form>

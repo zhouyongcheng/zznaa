@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.com.zzn.persist.client.LocationMapper" >
+
+  <resultMap id="ProvinceResultMap" type="cn.com.zzn.model.persist.Province" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="CityResultMap" type="cn.com.zzn.model.persist.City" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="provincecode" property="provincecode" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="AreaResultMap" type="cn.com.zzn.model.persist.Area" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="citycode" property="citycode" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="selectProvinces" resultMap="ProvinceResultMap" >
+    select id, code, name from province
+  </select>
+
+    <select id="selectCities" resultMap="CityResultMap" parameterType="java.lang.String">
+        select id, code, name, provincecode from city where provincecode = #{proviceCode}
+    </select>
+
+    <select id="selectAreas" resultMap="AreaResultMap" parameterType="java.lang.String" >
+        select id, code, name, citycode
+        from area
+        where citycode = #{cityCode}
+    </select>
+</mapper>

@@ -1,0 +1,98 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-3">
+            <accordion close-others="false">
+                <accordion-group ng-init="project.open = true" is-open="project.open">
+                    <accordion-heading>
+                        <div>Projects
+                            <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': project.open, 'glyphicon-chevron-right': !project.open}"></i>
+                        </div>
+                    </accordion-heading>
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="http://placehold.it/32x32">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#/project/1">Project 1</a></h4>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="http://placehold.it/32x32">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a href="#/project/2">Project 2</a></h4>
+                        </div>
+                    </div>
+                </accordion-group>
+                <accordion-group is-open="recent.open">
+                    <accordion-heading>
+                        <div>
+                            Recent Documents
+                            <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': recent.open, 'glyphicon-chevron-right': !recent.open}"></i>
+                        </div>
+                    </accordion-heading>
+                    <ol class="list-unstyled">
+                        <li><a href="#/document/1">Document 1</a></li>
+                        <li><a href="#/document/2">Document 2</a></li>
+                        <li><a href="#/document/3">Document 3</a></li>
+                        <li><a href="#/document/4">Document 4</a></li>
+                        <li><a href="#/document/5">Document 5</a></li>
+                    </ol>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-sm-9">
+            <div class="row">
+                <label class="col-xs-5 text-right"
+                       for="fname">First Name</label>
+                <input class="col-xs-7" type="text" id="fname"
+                       ng-model="person.firstName"
+                       ng-style="modelStatus()"
+                       ui-event="{focus: 'focusCallback()',
+                          blur : 'blurCallback()' }">
+            </div>
+            <div class="row">
+                <label class="col-xs-5 text-right"
+                       for="lname">Last Name</label>
+                <input class="col-xs-7" type="text" id="lname"
+                       ng-model="person.lastName">
+            </div>
+            <div class="row">
+                <label class="col-xs-5 text-right"
+                       for="phone">Phone</label>
+                <input class="col-xs-7" type="tel" id="phone"
+                       ui-mask="{{ mobileMask }}" ng-model="person.phone">
+            </div>
+            <div class="row">
+                <pre ng-style="modelStatus()" class="col-xs-12"><code>{{ getModel() }}</code></pre>
+            </div>
+
+            <!--datepicker begin -->
+            <div class="row">
+                <div class="col-sm-3">
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="dd-MM-yyyy" ng-model="dateFrom" is-open="dateFrom.opened" placeholder="From Date"/>
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="$event.stopPropagation();dateFrom.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                </p>
+                </div>
+                <div class="col-sm-3">
+                <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="dd-MM-yyyy" ng-model="dateTo" is-open="dateTo.opened" placeholder="To Date"/>
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="$event.stopPropagation();dateTo.opened = true;"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                </p>
+                </div>
+            </div>
+            <!--datepicker end-->
+
+            <img style="position: absolute;top: 0px;left: 0px;" ng-src="{{img}}"/>
+            <div ng-style="style"></div>
+
+        </div>
+    </div>
+</div>

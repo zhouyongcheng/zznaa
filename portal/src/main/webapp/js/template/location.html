@@ -1,0 +1,18 @@
+<div>
+<select ng-model="province"
+        ng-options="m.code as m.name for m in provinces"
+        ng-change="changeProvince(province)">
+    <option value="">please select</option>
+</select>
+
+<select ng-model="city"
+        ng-options="m.code as m.name for m in cities"
+        ng-change="changeCity(city)">
+    <option value="">please select</option>
+</select>
+
+<select ng-model="area"
+        ng-options="m.code as m.name for m in areas">
+    <option value="">please select</option>
+</select>
+</div>
