@@ -1,0 +1,27 @@
+<a class="btn btn-block btn-success" ui-sref="customer.add">添加客户</a>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>客户姓名</th>
+            <th>客户电话</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="customer in customers">
+            <td>{{customer.name}}</td>
+            <td>{{customer.email}}</td>
+        </tr>
+        <tr>
+            <td>曹子家</td>
+            <td>1351111111</td>
+        </tr>
+        <tr>
+            <td>需诚</td>
+            <td>13522222222</td>
+        </tr>
+        <tr>
+            <td>金兆</td>
+            <td>13533333333</td>
+        </tr>
+    </tbody>
+</table>
