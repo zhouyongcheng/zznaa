@@ -1,0 +1,35 @@
+@import "minxins";
+
+@base-color : red;
+@header-background-color: red;
+@paragraph-background-color: orange;
+@footer-background-color: green;
+
+header {
+  .rounded-corner;
+  background-color : @header-background-color;
+  color : contrast(@header-background-color);
+}
+
+p {
+  .rounded-corner;
+  background-color : @paragraph-background-color;
+  color : contrast(@paragraph-background-color);
+}
+
+footer {
+  .rounded-corner;
+  background-color : @footer-background-color;
+  color : contrast(@footer-background-color);
+}
+
+.paint() {
+  color : @base-color;
+}
+
+
+
+h1 {
+  .paint();
+}
+

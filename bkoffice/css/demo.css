@@ -1,0 +1,18 @@
+header {
+  border-redius: 5px;
+  background-color: red;
+  color: #ffffff;
+}
+p {
+  border-redius: 5px;
+  background-color: orange;
+  color: #000000;
+}
+footer {
+  border-redius: 5px;
+  background-color: green;
+  color: #ffffff;
+}
+h1 {
+  color: red;
+}

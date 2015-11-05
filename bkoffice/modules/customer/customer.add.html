@@ -1,0 +1,26 @@
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <legend>添加客户</legend>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-12">
+            <input type="text" class="form-control" id="mobile" placeholder="电话" ng-model="customer.mobile">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-12">
+            <input type="text" class="form-control" id="name" placeholder="客户名" ng-model="customer.name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-6">
+            <button type="submit" class="btn btn-block btn-success" ng-click="create()">添加</button>
+        </div>
+        <div class="col-xs-6">
+            <button type="submit" class="btn  btn-block btn-success" ng-click="back()">返回</button>
+        </div>
+    </div>
+</form>
