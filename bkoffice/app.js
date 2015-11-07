@@ -1,10 +1,16 @@
 define([
     'angular',
-    'loginModule',
-    'dashboardModule',
+    'uiRouter',
+    'fileUploadShim',
+    'fileUpload',
+    'restangular',
+    'angularJwt',
+    'angularLocalStorage',
+    'ngFileUpload',
     'usersModule',
-    'customerModule',
+    'realtorModule',
     'masterModule',
+    'loginModule',
     'brokerModule',
     'buyingModule',
     'sellingModule',
@@ -20,12 +26,11 @@ define([
          'restangular',
          'angular-jwt',
          'LocalStorageModule',
-         'loginModule',
-         'dashboardModule',
          'usersModule',
-         'customerModule',
+         'realtorModule',
          'masterModule',
          'projectModule',
+         'loginModule',
          'brokerModule',
          'buyingModule',
          'sellingModule',
@@ -33,10 +38,10 @@ define([
          'allianceModule',
          'uploadModule'
         ])
-        .config(['$stateProvider','$urlRouterProvider','$httpProvider','RestangularProvider','jwtInterceptorProvider','localStorageServiceProvider',function($stateProvider,$urlRouterProvider, $httpProvider,RestangularProvider,jwtInterceptorProvider, localStorageServiceProvider) {
+        .config(['$stateProvider','$httpProvider','RestangularProvider','jwtInterceptorProvider','localStorageServiceProvider',function($stateProvider,$httpProvider,RestangularProvider,jwtInterceptorProvider, localStorageServiceProvider) {
             // used for CORS
             //$httpProvider.defaults.withCredentials = true;
-            //RestangularProvider.setBaseUrl("http://192.168.0.103:3040");
+            //RestangularProvider.setBaseUrl("http://localhost:3000");
             localStorageServiceProvider.setPrefix('portal').setNotify(true, true)
 
             // used for jwt begin
@@ -53,38 +58,7 @@ define([
             $httpProvider.interceptors.push('jwtInterceptor');
                 // used for jwt end
 
-            $urlRouterProvider.otherwise('/login');
-
             $stateProvider
-                //登录
-                .state('login', {
-                    url: '/login',
-                    templateUrl: 'modules/login/login.html',
-                    controller : 'LoginController'
-                })
-                // 控制面板
-                .state('dashboard', {
-                    url: '/dashboard',
-                    template: '<ui-view />',
-                    controller : 'DashboardController'
-                })
-                // 重置密码
-                .state('dashboard.reset', {
-                    url: '/reset',
-                    templateUrl: 'modules/login/forget.html',
-                    controller : 'ForgetController'
-                })
-                .state('dashboard.project', {
-                    url: '/project',
-                    templateUrl: 'modules/project/project.list.html',
-                    controller : 'ProjectListController'
-                })
-                .state('dashboard.customer', {
-                    url: '/customer',
-                    templateUrl: 'modules/customer/customer.list.html',
-                    controller : 'CustomerListController'
-                })
-                // 用户管理
                 .state('users', {
                     url: '/users',
                     abstract: true,
@@ -107,25 +81,25 @@ define([
                     templateUrl: 'modules/users/users.add.html',
                     controller: 'UsersAddController'
                 })
-                // 客户管理路由器
-                .state('customer', {
-                    url: '/customer',
+                // 经纪人管理机能
+                .state('realtor', {
+                    url: '/realtor',
                     abstract: true,
-                    template: '<ui-view />',
-                }).state('customer.list', {
+                    templateUrl: 'modules/realtor/realtor.html',
+                }).state('realtor.list', {
                     url: '/list',
-                    templateUrl: 'modules/customer/customer.list.html',
-                    controller: 'CustomerListController'
-                }).state('customer.edit', {
+                    templateUrl: 'modules/realtor/realtor.list.html',
+                    controller: 'RealtorListController'
+                }).state('realtor.edit', {
                     url: '/edit/:id',
-                    templateUrl: 'modules/customer/customer.edit.html',
-                    controller: 'CustomerEditController'
-                }).state('customer.add', {
-                    url: '/add',
-                    templateUrl: 'modules/customer/customer.add.html',
-                    controller: 'CustomerAddController'
+                    templateUrl: 'modules/realtor/realtor.edit.html',
+                    controller: 'RealtorEditController'
+                }).state('realtor.add', {
+                        url: '/add',
+                    templateUrl: 'modules/realtor/realtor.add.html',
+                    controller: 'RealtorAddController'
                 })
-                // 文件上传管理路由配置
+                // 文件上传功能
                 .state('upload', {
                     url: '/upload',
                     templateUrl: 'modules/upload/upload.html',
@@ -151,6 +125,10 @@ define([
                     url: '/update/:category/:code',
                     templateUrl: 'modules/master/update.html',
                     controller: 'MasterUpdateController'
+                }).state('login', {
+                    url: '/login',
+                    templateUrl: 'modules/login/login.html',
+                    controller : 'LoginController'
                 }).state('broker', {
                     url: '/broker',
                     templateUrl: 'modules/broker/broker.html'

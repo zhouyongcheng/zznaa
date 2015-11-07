@@ -1,6 +1,5 @@
 require.config({
     paths : {
-        //项目全局用模块定义
         angular : 'bower_components/angular/angular.min',
         ngResource:'bower_components/angular-resource/angular-resource.min',
         uiRouter : 'bower_components/angular-ui-router/release/angular-ui-router.min',
@@ -11,25 +10,21 @@ require.config({
         restangular : 'bower_components/restangular/dist/restangular.min',
         angularJwt : 'bower_components/angular-jwt/dist/angular-jwt.min',
         angularLocalStorage : 'bower_components/angular-local-storage/dist/angular-local-storage.min',
-        ngFileUpload : 'bower_components/angular-file-upload/dist/angular-file-upload.min',
-        fileUploadShim : 'bower_components/ng-file-upload/ng-file-upload-shim.min',
-        fileUpload : 'bower_components/ng-file-upload/ng-file-upload.min',
-        leftnavi : 'js/bs_leftnavi',
-
-        //自定义的业务逻辑模块定义
-        loginModule : 'modules/login/loginModule',
-        dashboardModule : 'modules/dashboard/dashboardModule',
+        metisMenu: 'bower_components/metisMenu/dist/metisMenu.min',
         usersModule: 'modules/users/usersModule',
-        customerModule: 'modules/customer/customerModule',
+        realtorModule: 'modules/realtor/realtorModule',
         masterModule: 'modules/master/masterModule',
+        loginModule : 'modules/login/loginModule',
         brokerModule : 'modules/broker/brokerModule',
         buyingModule : 'modules/buying/buyingModule',
         sellingModule : 'modules/selling/sellingModule',
         repositoryModule : 'modules/repository/repositoryModule',
         allianceModule : 'modules/alliance/allianceModule',
         uploadModule : 'modules/upload/uploadModule',
-        projectModule : 'modules/project/projectModule'
-
+        projectModule : 'modules/project/projectModule',
+        ngFileUpload : 'bower_components/angular-file-upload/dist/angular-file-upload.min',
+        fileUploadShim : 'bower_components/ng-file-upload/ng-file-upload-shim.min',
+        fileUpload : 'bower_components/ng-file-upload/ng-file-upload.min'
     },
     shim : {
         twitter : {
@@ -54,12 +49,13 @@ require.config({
         angularLocalStorage : {
             deps : ['angular']
         },
-        leftnavi : {
+        metisMenu : {
             deps : ['jquery']
         },
         fileUpload : {
             deps : ['angular']
-        },
+        }
+        ,
         ngFileUpload : {
             deps : ['angular']
         }
@@ -67,19 +63,24 @@ require.config({
 });
 
 require([
+    'jquery',
     'angular',
+    'app',
     'domReady',
-    'uiRouter',
-    'fileUploadShim',
-    'fileUpload',
-    'restangular',
-    'angularJwt',
-    'angularLocalStorage',
-    'ngFileUpload',
-    'app'
-], function(angular,domReady) {
+    'metisMenu'
+], function($, angular, app,domReady) {
     'use strict';
     domReady(function() {
+        $(function() {
+            $('#menu').metisMenu();
+            $('#menu2').metisMenu({
+                toggle: false
+            });
+            $('#menu3').metisMenu({
+                doubleTapToGo: true
+            });
+            $('#menu4').metisMenu();
+        });
         angular.bootstrap(document, ['portal']);
     });
 });
