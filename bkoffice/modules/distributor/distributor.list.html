@@ -1,0 +1,22 @@
+
+<table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <th>用户名</th>
+        <th>电话</th>
+        <th>
+            <a class="btn btn-sm btn-success" ui-sref="realtors.add">添加用户</a>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="realtor in realtors">
+        <td>{{realtor.name}}</td>
+        <td>{{realtor.email}}</td>
+        <td>
+            <a class="btn btn-sm btn-danger" ng-click="delete(realtor._id)">删除</a>
+            <a class="btn btn-sm btn-default" ng-click="edit(realtor._id)">编辑</a>
+        </td>
+    </tr>
+    </tbody>
+</table>

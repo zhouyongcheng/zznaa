@@ -1,0 +1,40 @@
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <legend><h4>添加经纪人</h4></legend>
+    </div>
+
+    <atm-cities province="realtor.province" city="realtor.city" distributor="realtor.distributor"></atm-cities>
+
+
+
+    <div class="form-group">
+        <label for="store" class="col-sm-2 control-label">加盟店</label>
+        <div class="col-sm-4">
+            <select name="name" id="store" class="form-control"
+                    ng-model="realtor.storeId">
+                <option value=""> -- Select One -- </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label text-right">姓名</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="name" ng-model="realtor.name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="mobile" class="col-sm-2 control-label text-right">电话</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="mobile" ng-model="realtor.mobile">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+            <button type="submit" class="btn btn-success" ng-click="create()">添加</button>
+            <button type="submit" class="btn btn-success" ng-click="back()">返回</button>
+        </div>
+    </div>
+</form>
