@@ -1,0 +1,54 @@
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+        <legend><h4>添加服务商</h4></legend>
+    </div>
+    <div class="form-group">
+    	<label for="code" class="col-sm-2 control-label">服务代码:</label>
+    	<div class="col-sm-4">
+    		<input type="text" name="code" id="code" class="form-control"
+                   ng-model="service.code" />
+    	</div>
+    </div>
+
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">名称:</label>
+        <div class="col-sm-4">
+            <input type="text" name="name" id="name" class="form-control"
+                   ng-model="service.name" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="shortName" class="col-sm-2 control-label">简称:</label>
+        <div class="col-sm-4">
+            <input type="text" name="shortName" id="shortName" class="form-control"
+                   ng-model="service.shortName" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description" class="col-sm-2 control-label">描述:</label>
+        <div class="col-sm-4">
+            <input type="text" name="description" id="description" class="form-control"
+                    ng-model="service.description" />
+        </div>
+    </div>
+
+    <div class="form-group">
+    	<label for="accessibility" class="col-sm-2 control-label">开放性:</label>
+    	<div class="col-sm-4">
+    		<select name="accessibility" id="accessibility" class="form-control"
+                    ng-model="service.accessibility"
+                    ng-options="o.code as o.label for o in service.accesses">
+                <option value=""> -- Select One -- </option>
+            </select>
+    	</div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+            <button class="btn btn-success" ng-click="create()">添加</button>
+            <button class="btn btn-success" ng-click="back()">返回</button>
+        </div>
+    </div>
+</form>

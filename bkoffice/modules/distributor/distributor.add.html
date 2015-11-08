@@ -1,33 +1,67 @@
 <form class="form-horizontal" role="form">
     <div class="form-group">
-        <legend><h4>添加经纪人</h4></legend>
+        <legend><h4>添加代理店</h4></legend>
     </div>
 
-    <atm-cities province="realtor.province" city="realtor.city" distributor="realtor.distributor"></atm-cities>
-
-
+    <div class="form-group">
+    	<label for="name" class="col-sm-2 control-label">名称</label>
+    	<div class="col-sm-4">
+    		<input type="text" name="name" id="name" class="form-control" />
+    	</div>
+    </div>
 
     <div class="form-group">
-        <label for="store" class="col-sm-2 control-label">加盟店</label>
+        <label for="abbreviation" class="col-sm-2 control-label">简称</label>
         <div class="col-sm-4">
-            <select name="name" id="store" class="form-control"
-                    ng-model="realtor.storeId">
+            <input type="text" name="abbreviation" id="abbreviation" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+    	<label for="province" class="col-sm-2 control-label">省:</label>
+    	<div class="col-sm-4">
+    		<select name="province" id="province" class="form-control">
+                <option value=""> -- Select One -- </option>
+            </select>
+    	</div>
+    </div>
+
+    <div class="form-group">
+        <label for="city" class="col-sm-2 control-label">市:</label>
+        <div class="col-sm-4">
+            <select name="city" id="city" class="form-control">
                 <option value=""> -- Select One -- </option>
             </select>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label text-right">姓名</label>
+        <label for="area" class="col-sm-2 control-label">区:</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="name" ng-model="realtor.name">
+            <select name="area" id="area" class="form-control">
+                <option value=""> -- Select One -- </option>
+            </select>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="mobile" class="col-sm-2 control-label text-right">电话</label>
+        <label for="phone" class="col-sm-2 control-label">电话</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="mobile" ng-model="realtor.mobile">
+            <input type="text" name="phone" id="phone" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="mail" class="col-sm-2 control-label">邮箱</label>
+        <div class="col-sm-4">
+            <input type="text" name="mail" id="mail" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="site" class="col-sm-2 control-label">网址</label>
+        <div class="col-sm-4">
+            <input type="text" name="site" id="site" class="form-control" />
         </div>
     </div>
 

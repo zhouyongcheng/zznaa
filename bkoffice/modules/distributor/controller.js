@@ -6,12 +6,11 @@ define(['angular', 'uiRouter','angularLocalStorage'], function(angular) {
         .controller('DistributorController', function($scope) {
             $scope.message = '';
         })
-        .controller('DistributorListController', function($scope,$state,Restangular,localStorageService,distributor) {
-            $scope.distributor = distributor;
+        .controller('DistributorListController', function($scope,$state,Restangular) {
 
             $scope.edit = function(_id) {
                 $state.go('distributor.edit', {id:_id});
-            }
+            };
 
             $scope.delete = function(_id) {
                 Restangular.one('/distributor',_id).remove().then(function() {

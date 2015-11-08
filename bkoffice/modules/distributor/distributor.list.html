@@ -5,17 +5,17 @@
         <th>用户名</th>
         <th>电话</th>
         <th>
-            <a class="btn btn-sm btn-success" ui-sref="realtors.add">添加用户</a>
+            <a class="btn btn-sm btn-success" ui-sref="distributor.add">添加代理店</a>
         </th>
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="realtor in realtors">
-        <td>{{realtor.name}}</td>
-        <td>{{realtor.email}}</td>
+    <tr ng-repeat="distributor in distributors">
+        <td>{{distributor.name}}</td>
+        <td>{{distributor.email}}</td>
         <td>
-            <a class="btn btn-sm btn-danger" ng-click="delete(realtor._id)">删除</a>
-            <a class="btn btn-sm btn-default" ng-click="edit(realtor._id)">编辑</a>
+            <a class="btn btn-sm btn-danger" ng-click="delete(distributor._id)">删除</a>
+            <a class="btn btn-sm btn-default" ng-click="edit(distributor._id)">编辑</a>
         </td>
     </tr>
     </tbody>

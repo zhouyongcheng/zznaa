@@ -16,6 +16,9 @@ define(['angular', 'uiRouter'], function(angular) {
             }
 
         }).controller('CustomerAddController', function($scope,$state,Restangular) {
+
+            $scope.genders = [{code:_MALE, label : '先生'},{code:_FEMALE, label : '女士'}];
+
             $scope.customer = {
                 name: "测试",                           // 客户姓名
                 gender : "_MALE",                          // 先生、女士

@@ -6,8 +6,7 @@ define(['angular', 'uiRouter','angularLocalStorage'], function(angular) {
         .controller('RealtorController', function($scope) {
             $scope.message = '';
         })
-        .controller('RealtorListController', function($scope,$state,Restangular,localStorageService,realtor) {
-            $scope.realtor = realtor;
+        .controller('RealtorListController', function($scope,$state,Restangular,localStorageService) {
 
             $scope.edit = function(_id) {
                 $state.go('realtor.edit', {id:_id});

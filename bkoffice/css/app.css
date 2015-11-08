@@ -1,21 +1,5 @@
-
-body {
-    font-family: FontAwesome;
-    background-color: #101010;
-}
-
-.header {
-    background-color: #cccccc;
-    border-bottom : 1px solid #333333 ;
-}
-
-.footer {
-    background-color: #cccccc;
-    border-top : 1px solid #333333 ;
-}
-
-.img-responsive {
-    display: block;
-    max-width: 100%;
-    height: auto;
+.login-box {
+    border: dashed;
+    padding: 30px;
+    margin-top: 7%;
 }

@@ -9,6 +9,12 @@
         </div>
     </div>
 
+    <select name="gender" id="gender" class="form-control"
+            ng-model="customer.gender"
+            ng-options="gender.code for gender in customer.genders">
+    	<option value=""> -- Select One -- </option>
+    </select>
+
     <div class="form-group">
         <div class="col-xs-12">
             <input type="text" class="form-control" id="name" placeholder="客户名" ng-model="customer.name">

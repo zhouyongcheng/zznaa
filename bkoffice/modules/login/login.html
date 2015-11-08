@@ -1,15 +1,41 @@
-<form class="form-horizontal">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="username" ng-model="user.username"/>
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-    </div>
-    <div class="form-group">
-        <input type="password" class="form-control" placeholder="password" ng-model="user.password"/>
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-    </div>
+
+<div class="login-box col-md-offset-4 col-md-4">
     <div class="row">
-        <div class="col-xs-4">
-            <button class="btn btn-primary btn-block btn-flat" ng-click="login()">Sign In</button>
-        </div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="mobile" class="col-md-offset-1 col-md-3 control-label">手机:</label>
+                <div class="col-md-4">
+                    <input type="text" name="mobile" id="mobile" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="col-md-offset-1 col-md-3 control-label">密码:</label>
+                <div class="col-md-4">
+                    <input type="text" name="password" id="password" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-3">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            记住我
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat" ng-click="login()">登录</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-9 col-md-3">
+                    <a class="btn btn-block btn-flat">忘记密码</a>
+                </div>
+            </div>
+        </form>
     </div>
-</form>
+</div>
